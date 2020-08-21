@@ -5,6 +5,7 @@ import com.mmkpdevelopers.freetable.model.Table;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import java.util.List;
@@ -32,10 +33,9 @@ public class TableController {
         return tableRepository.findAll();
     }
 
-    @GetMapping("/deleteTable")
+    @GetMapping("/deleteTable/{id}")
     @ResponseBody
-    public void deleteTable(@RequestParam(name = "id") String id){
-        tableRepository.deleteById(Long.parseLong(id));
+    public void deleteTable(@PathVariable String id){
+        tableRepository.deleteById(Integer.parseInt(id));
     }
-
 }

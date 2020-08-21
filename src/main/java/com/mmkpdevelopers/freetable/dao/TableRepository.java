@@ -6,5 +6,5 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface TableRepository extends JpaRepository<Table, Long> {
+public interface TableRepository extends JpaRepository<Table, Integer> {
 }

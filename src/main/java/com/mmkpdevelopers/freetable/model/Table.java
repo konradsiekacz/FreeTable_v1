@@ -15,7 +15,7 @@ import javax.persistence.Id;
 public class Table {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private int id;
+    private long id;
     private int tableNumber;
     private int numberOfSeats;
 
