@@ -6,7 +6,7 @@ import java.util.List;
 public class Restaurant {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private int id;
+    private Long id;
     private String name;
     private String adress;
     @OneToMany
@@ -15,8 +15,7 @@ public class Restaurant {
     public Restaurant() {
     }
 
-    public Restaurant(int id, String name, String adress, List<Table> tables) {
-        this.id = id;
+    public Restaurant(String name, String adress, List<Table> tables) {
         this.name = name;
         this.adress = adress;
         this.tables = tables;

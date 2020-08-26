@@ -2,10 +2,8 @@ package com.mmkpdevelopers.freetable.model;
 
 import lombok.Getter;
 import lombok.Setter;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+
+import javax.persistence.*;
 import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
 
@@ -17,15 +15,19 @@ public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
+    @Column
     private String name;
+    @Column
     private String surname;
+    @Column
     private String email;
-    private int phoneNumber;
+    @Column
+    private long phoneNumber;
 
     public User() {
     }
 
-    public User(String name, String surname, String email, int phoneNumber) {
+    public User(String name, String surname, String email, long phoneNumber) {
         this.name = name;
         this.surname = surname;
         this.email = email;
