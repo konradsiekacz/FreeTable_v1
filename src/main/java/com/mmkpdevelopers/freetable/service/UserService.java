@@ -1,9 +1,9 @@
 package com.mmkpdevelopers.freetable.service;
+
 import com.mmkpdevelopers.freetable.dao.UserRepository;
 import com.mmkpdevelopers.freetable.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import java.util.ArrayList;
 import java.util.List;
 

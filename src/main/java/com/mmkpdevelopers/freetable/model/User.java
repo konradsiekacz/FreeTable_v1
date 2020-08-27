@@ -2,10 +2,8 @@ package com.mmkpdevelopers.freetable.model;
 
 import lombok.Getter;
 import lombok.Setter;
-
 import javax.persistence.*;
 import javax.persistence.Table;
-import javax.validation.constraints.NotBlank;
 
 @Getter
 @Setter
@@ -22,12 +20,12 @@ public class User {
     @Column
     private String email;
     @Column
-    private long phoneNumber;
+    private int phoneNumber;
 
     public User() {
     }
 
-    public User(String name, String surname, String email, long phoneNumber) {
+    public User(String name, String surname, String email, int phoneNumber) {
         this.name = name;
         this.surname = surname;
         this.email = email;

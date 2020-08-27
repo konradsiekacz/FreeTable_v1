@@ -1,14 +1,10 @@
 package com.mmkpdevelopers.freetable.controller;
-import com.mmkpdevelopers.freetable.dao.UserRepository;
-import com.mmkpdevelopers.freetable.exceptions.UserNotFoundException;
+
 import com.mmkpdevelopers.freetable.model.User;
 import com.mmkpdevelopers.freetable.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
-import java.util.Optional;
 
 @RestController
 public class UserController {
@@ -17,9 +13,9 @@ public class UserController {
     UserService userService;
 
     @PostMapping("/saveUser")
-    private Long saveUser(@RequestBody User user){
+    private int saveUser(@RequestBody User user){
         userService.saveUser(user);
-        return user.getId();
+        return user.getId().intValue();
     }
 
     @GetMapping("/getUsers")
@@ -29,18 +25,21 @@ public class UserController {
     }
 
     @GetMapping("/getUser/{id}")
+    @ResponseBody
     private User getUser(@PathVariable("id") int id)
     {
         return userService.getUserById(id);
     }
 
     @DeleteMapping("/deleteUser/{id}")
+    @ResponseBody
     private void deleteUser(@PathVariable("id") int id)
     {
         userService.deleteUserById(id);
     }
 
     @PutMapping("/updateUser")
+    @ResponseBody
     private User update(@RequestBody User user)
     {
         userService.saveUser(user);
