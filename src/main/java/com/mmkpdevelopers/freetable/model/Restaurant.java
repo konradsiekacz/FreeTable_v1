@@ -5,7 +5,7 @@ import java.util.List;
 @Entity
 public class Restaurant {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
     private String adress;
@@ -19,5 +19,9 @@ public class Restaurant {
         this.name = name;
         this.adress = adress;
         this.tables = tables;
+    }
+
+    public Long getId() {
+        return id;
     }
 }

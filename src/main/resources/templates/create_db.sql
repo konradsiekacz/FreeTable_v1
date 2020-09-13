@@ -9,11 +9,8 @@ CREATE TABLE users(
     phoneNumber integer (99) NOT NULL
 );
 
-CREATE TABLE matches(
-    match_id serial PRIMARY KEY UNIQUE,
-    date date NOT NULL,
-    home_team_id integer NOT NULL,
-    away_team_id integer NOT NULL,
-    goals_home integer NOT NULL,
-    goals_away integer NOT NULL
+CREATE TABLE tables(
+    id serial PRIMARY KEY UNIQUE,
+    tableNumber integer NOT NULL,
+    numberOfSeats integer NOT NULL,
 );

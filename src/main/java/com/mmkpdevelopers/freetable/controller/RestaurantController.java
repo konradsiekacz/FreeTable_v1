@@ -1,53 +1,58 @@
-//package com.mmkpdevelopers.freetable.controller;
-//
-//
-//import com.mmkpdevelopers.freetable.dao.RestaurantRepository;
-//import com.mmkpdevelopers.freetable.dao.TableRepository;
-//import com.mmkpdevelopers.freetable.model.Restaurant;
-//import com.mmkpdevelopers.freetable.model.Table;
-//import org.springframework.beans.factory.annotation.Autowired;
-//import org.springframework.stereotype.Controller;
-//import org.springframework.web.bind.annotation.GetMapping;
-//import org.springframework.web.bind.annotation.ResponseBody;
-//
-//import java.util.Collection;
-//import java.util.Collections;
-//import java.util.List;
-//import java.util.stream.Collectors;
-//
-//@Controller
-//public class RestaurantController {
-//    @Autowired
-//    TableRepository tableRepository;
-//    @Autowired
-//    RestaurantRepository restaurantRepository;
-//
-//    public RestaurantController(RestaurantRepository restaurantRepository, TableRepository tableRepository) {
-//        this.restaurantRepository = restaurantRepository;
-//        this.tableRepository = tableRepository;
-//    }
-//
-//    @GetMapping("/addRestaurant")
-//    @ResponseBody
-//    public void addRest(){
-//        restaurantRepository.save(new Restaurant("Marchewka", "ul.Ulicowa 2", tableRepository.findAll()));
-//    }
-//
-//
-//    @GetMapping("/getRes")
-//    @ResponseBody
-//    public List<Restaurant> getRestaurant(){
-//       return restaurantRepository.findAll();
-//    }
-//
-////    @GetMapping("/getRes")
-////    @ResponseBody
-////    public List<Restaurant> getRestaurant(){
-////        List<Restaurant> restaurants = restaurantRepository.findAll().stream()
-////                .flatMap(Collection::stream)
-////                .collect(Collectors.toList());
-////        return restaurants;
-////    }
-//
-//
-//}
+package com.mmkpdevelopers.freetable.controller;
+
+import com.mmkpdevelopers.freetable.model.Restaurant;
+import com.mmkpdevelopers.freetable.service.RestaurantService;
+import com.mmkpdevelopers.freetable.service.TableService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.*;
+import java.util.List;
+
+
+@Controller
+public class RestaurantController {
+    @Autowired
+    TableService tableService;
+    @Autowired
+    RestaurantService restaurantService;
+
+    public RestaurantController(RestaurantService restaurantService, TableService tableService) {
+        this.restaurantService = restaurantService;
+        this.tableService = tableService;
+    }
+
+    @PostMapping("/saveRest")
+    @ResponseBody
+    private int saveRest(@RequestBody Restaurant restaurant){
+        restaurantService.saveReustaurant(restaurant);
+        return restaurant.getId().intValue();
+    }
+
+    @GetMapping("/getRest")
+    @ResponseBody
+    private List<Restaurant> getRestaurants(){
+        return restaurantService.getRestaurants();
+    }
+
+    @GetMapping("/getRest/{id}")
+    @ResponseBody
+    private Restaurant getRestaurant(@PathVariable("id") int id)
+    {
+        return restaurantService.getRestaurantById(id);
+    }
+
+    @DeleteMapping("/deleteRest/{id}")
+    @ResponseBody
+    private void deleteRestaurant(@PathVariable("id") int id)
+    {
+        restaurantService.deleteRestaurantById(id);
+    }
+
+    @PutMapping("/updateRest/{id}")
+    @ResponseBody
+    private Restaurant update(@RequestBody Restaurant restaurant, @PathVariable("id") int id)
+    {
+        restaurantService.updateRestaurant(restaurant, id);
+        return restaurant;
+    }
+}

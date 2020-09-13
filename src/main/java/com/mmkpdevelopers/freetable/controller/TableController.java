@@ -41,37 +41,11 @@ public class TableController {
         tableService.deleteTableById(id);
     }
 
-    @PutMapping("/updateTable")
+    @PutMapping("/updateTable/{id}")
     @ResponseBody
-    private Table update(@RequestBody Table table)
+    private Table update(@RequestBody Table table, @PathVariable("id") int id)
     {
-        tableService.saveTable(table);
+        tableService.updateTable(table, id);
         return table;
     }
-//
-//    @Autowired
-//    TableRepository tableRepository;
-//
-//    public TableController(TableRepository tableRepository) {
-//        this.tableRepository = tableRepository;
-//    }
-//
-//    @GetMapping("/addTable")
-//    @ResponseBody
-//    public void addTable(){
-//        tableRepository.save(new Table(5, 2));
-//        tableRepository.save(new Table(6, 2));
-//    }
-//
-//    @GetMapping("/getTable")
-//    @ResponseBody
-//    public List<Table> getTable(){
-//        return tableRepository.findAll();
-//    }
-//
-//    @GetMapping("/deleteTable/{id}")
-//    @ResponseBody
-//    public void deleteTable(@PathVariable String id){
-//        tableRepository.deleteById(Long.parseLong(id));
-//    }
 }
