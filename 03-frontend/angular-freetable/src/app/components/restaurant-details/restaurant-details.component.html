@@ -1,0 +1,24 @@
+<h2>Restaurant Details</h2> 
+
+<hr/>
+<div *ngIf="restaurant">
+  <div>
+    <label><b>Id: </b></label> {{restaurant.id}}
+  </div>
+  <div>
+    <label><b>Name: </b></label> {{restaurant.name}}
+  </div>
+  <div>
+    <label><b>Address: </b></label> {{restaurant.address}}
+  </div>
+  <div>
+    <label><b>Average price for meal: </b></label> {{restaurant.averagePriceForMeal}}
+  </div> 
+  <div>
+    <label><b>Image Url: </b></label> {{restaurant.imageUrl}}
+  </div>   
+</div>
+
+<br>
+<br>
+<button (click)="list()" class="btn btn-primary">Back to Restaurant List</button><br>
