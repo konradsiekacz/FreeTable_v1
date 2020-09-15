@@ -1,0 +1,16 @@
+<div class="detail-section">
+    <div class="container-fluid">
+
+        <img src="{{ restaurant.imageUrl }}" class="detail-img">
+
+        <h3>{{ restaurant.name }}</h3>
+        <div class="price">{{ restaurant.averagePriceForMeal | currency:'USD' }}</div>
+        <a href="#" class="primary-btn">Add to cart</a>
+
+        <hr>
+        <h4>Description</h4>
+        <p>{{ restaurant.description }}</p>
+
+        <a routerLink="/customer" class="mt-5">Back to Product List</a>
+    </div>
+</div>

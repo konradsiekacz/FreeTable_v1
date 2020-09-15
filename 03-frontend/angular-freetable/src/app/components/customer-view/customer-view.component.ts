@@ -2,7 +2,6 @@ import { Observable } from "rxjs";
 import { Restaurant } from "src/app/common/restaurant";
 import { Component, OnInit } from "@angular/core";
 import { Router } from '@angular/router';
-import { CustomerViewService } from 'src/app/services/customer-view.service';
 import { RestaurantService } from "src/app/services/restaurant.service";
 
 

@@ -1,24 +1,74 @@
-<nav class="navbar navbar-expand-sm bg-primary navbar-dark">
-  <!-- Links -->
-  <ul class="navbar-nav">
-    <li class="nav-item">
-        <a routerLink="restaurants" class="nav-link" routerLinkActive="active">Admin</a>
-    </li>
-    <li class="nav-item">
-        <a routerLink="customer" class="nav-link" routerLinkActive="active">Customer view</a>
-    </li>
-  </ul>
-</nav>
-<div class="container">
-  <br>
-  <hr>  
-  <div class="card">
-    <div class="card-body">
-  <router-outlet></router-outlet>
-    </div>
-  </div>
-</div>
 
+<div class="page-wrapper">
+
+  <!-- MENU SIDEBAR-->
+  <router-outlet></router-outlet>
+
+  <aside class="menu-sidebar d-none d-lg-block">
+    <div class="logo">
+      <a href="#">
+        <img src="assets/images/logo.png" alt="freetable" class="img-responsive">
+      </a>
+    </div>
+    <div class="menu-sidebar-content js-scrollbar1">
+      <nav class="navbar-sidebar">
+        <ul class="list-unstyled navbar-list">
+          <li>
+            <a routerLink="customer" class="nav-link" routerLinkActive="active">Customer view</a>
+          </li>
+          <li>
+            <a routerLink="restaurants" class="nav-link" routerLinkActive="active">Admin view</a>
+          </li>
+          <li>
+            <a href="#">Your calendar</a>
+          </li>
+          <li>
+            <a href="#">My Profile</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </aside>
+  <!-- END MENU SIDEBAR-->
+
+  <div class="page-container">
+    <!-- HEADER DESKTOP-->
+    <header class="header-desktop">
+      <div class="section-content section-content-p30">
+        <div class="container-fluid">
+          <div class="header-wrap">
+            <form class="form-header" onsubmit="return false;" method="GET">
+              <input class="au-input au-input-xl" type="text" name="search" placeholder="Search for restaurants ..." />
+              <button class="au-btn-submit" type="submit">
+                Search
+              </button>
+            </form>
+            <div class="cart-area d-n">
+              <a href="shopping-detail.html">
+                <div class="total">Total reservations <span> 2</span> </div> <i class="fas fa-utensils" aria-hidden="true"></i>
+              </a>
+            </div>
+          </div>
+          <div class="account-wrap"></div>
+        </div>
+      </div>
+    </header>
+    <!-- END HEADER DESKTOP-->
+
+    <!-- MAIN CONTENT-->
+    <router-outlet></router-outlet>
+
+    
+
+<!-- ENDS PAGE CONTAINER -->
+
+<footer>
+  <ul>
+    <li><a href="#">About Us</a></li>
+    <li><a href="#">Contact Us</a></li>
+    <li><a href="#">Help</a></li>
+  </ul>
+</footer>
 
 
 
