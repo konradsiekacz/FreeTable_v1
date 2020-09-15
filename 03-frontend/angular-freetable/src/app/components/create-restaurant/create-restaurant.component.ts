@@ -39,4 +39,7 @@ export class CreateRestaurantComponent implements OnInit {
   gotoList() {
     this.router.navigate(['/restaurants']);
   }
+  list(){
+    this.router.navigate(['admin-menu/restaurants']);
+  }
 }
