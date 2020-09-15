@@ -16,6 +16,7 @@ import { AppRoutingModule } from './app.routing.module';
 import { CustomerViewComponent } from './components/customer-view/customer-view.component';
 import { RestaurantItemComponent } from './components/restaurant-item/restaurant-item.component';
 import { AdminMenuComponent } from './components/admin-menu/admin-menu.component';
+import { LoginMenuComponent } from './components/login-menu/login-menu.component';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import { AdminMenuComponent } from './components/admin-menu/admin-menu.component
     CustomerViewComponent,
     RestaurantItemComponent,
     AdminMenuComponent,
+    LoginMenuComponent,
   ],
   imports: [
     BrowserModule,
