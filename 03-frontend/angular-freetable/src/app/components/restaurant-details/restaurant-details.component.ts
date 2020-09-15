@@ -28,7 +28,7 @@ export class RestaurantDetailsComponent implements OnInit {
       }, error => console.log(error));
   }
   list(){
-    this.router.navigate(['restaurants']);
+    this.router.navigate(['admin-menu/restaurants']);
   }
 
 }

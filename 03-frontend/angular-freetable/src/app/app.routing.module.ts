@@ -12,8 +12,8 @@ import { LoginMenuComponent } from './components/login-menu/login-menu.component
 const routes: Routes = [
   { path: '', redirectTo: 'restaurant', pathMatch: 'full' },
   { path: 'admin-menu/restaurants', component: RestaurantListComponent },
-  { path: 'restaurants/add', component: CreateRestaurantComponent },
-  { path: 'update/:id', component: UpdateRestaurantComponent },
+  { path: 'admin-menu/restaurants/add', component: CreateRestaurantComponent },
+  { path: 'admin-menu/update/:id', component: UpdateRestaurantComponent },
   { path: 'details/:id', component: RestaurantDetailsComponent },
   { path: 'customer', component: CustomerViewComponent },
   { path: 'customer/:id', component: RestaurantItemComponent },

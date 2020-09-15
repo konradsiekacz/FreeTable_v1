@@ -1,36 +1,50 @@
-<h3>Create Restaurant</h3>
-<div [hidden]="submitted" style="width: 400px;">
-  <form (ngSubmit)="onSubmit()">
-    <div class="form-group">
-      <label for="name">Id</label>
-      <input type="text" class="form-control" id="id" required [(ngModel)]="restaurant.id" name="id">
-    </div>
+<div class="main-content">
+  <div class="section-content section-content-p30">
+     <div class="container-fluid">
+        
 
-    <div class="form-group">
-      <label for="name">Name</label>
-      <input type="text" class="form-control" id="address" required [(ngModel)]="restaurant.name" name="name">
-    </div>
+          <h3>Create Restaurant</h3>
+          <div [hidden]="submitted" style="width: 400px;">
+            <form (ngSubmit)="onSubmit()">
+              <div class="form-group">
+                <label for="name">Id</label>
+                <input type="text" class="form-control" id="id" required [(ngModel)]="restaurant.id" name="id">
+              </div>
+          
+              <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" class="form-control" id="address" required [(ngModel)]="restaurant.name" name="name">
+              </div>
+          
+              <div class="form-group">
+                <label for="name">Address</label>
+                <input type="text" class="form-control" id="email" required [(ngModel)]="restaurant.address" name="address">
+              </div>
+          
+              <div class="form-group">
+                <label for="name">Image Url</label>
+                <input type="text" class="form-control" id="imageUrl" required [(ngModel)]="restaurant.imageUrl" name="imageUrl">
+              </div>
+          
+              <div class="form-group">
+                <label for="name">Average price for meal</label>
+                <input type="text" class="form-control" id="averagePriceForMeal" required [(ngModel)]="restaurant.averagePriceForMeal" name="imageUrl">
+              </div>
+          
+              <button type="submit" class="btn btn-success">Submit</button>
+            </form>
+          </div>
+          
+          <div [hidden]="!submitted">
+            <h4>You submitted successfully!</h4>
+            <!-- <button class="btn btn-success" (click)="newRestaurant()">Add</button> -->
+          </div>
 
-    <div class="form-group">
-      <label for="name">Address</label>
-      <input type="text" class="form-control" id="email" required [(ngModel)]="restaurant.address" name="address">
-    </div>
-
-    <div class="form-group">
-      <label for="name">Image Url</label>
-      <input type="text" class="form-control" id="imageUrl" required [(ngModel)]="restaurant.imageUrl" name="imageUrl">
-    </div>
-
-    <div class="form-group">
-      <label for="name">Average price for meal</label>
-      <input type="text" class="form-control" id="averagePriceForMeal" required [(ngModel)]="restaurant.averagePriceForMeal" name="imageUrl">
-    </div>
-
-    <button type="submit" class="btn btn-success">Submit</button>
-  </form>
-</div>
-
-<div [hidden]="!submitted">
-  <h4>You submitted successfully!</h4>
-  <!-- <button class="btn btn-success" (click)="newRestaurant()">Add</button> -->
+         
+           
+           
+  
+           
+     </div>
+  </div>
 </div>
