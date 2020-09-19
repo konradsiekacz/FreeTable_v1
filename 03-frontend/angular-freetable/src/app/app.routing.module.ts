@@ -8,17 +8,20 @@ import { CustomerViewComponent } from './components/customer-view/customer-view.
 import { RestaurantItemComponent } from './components/restaurant-item/restaurant-item.component';
 import { AdminMenuComponent } from './components/admin-menu/admin-menu.component';
 import { LoginMenuComponent } from './components/login-menu/login-menu.component';
+import { CartDetailsComponent } from './components/cart-details/cart-details.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'restaurant', pathMatch: 'full' },
   { path: 'admin-menu/restaurants', component: RestaurantListComponent },
   { path: 'admin-menu/restaurants/add', component: CreateRestaurantComponent },
-  { path: 'admin-menu/update/:id', component: UpdateRestaurantComponent },
+  { path: 'update/:id', component: UpdateRestaurantComponent },
   { path: 'details/:id', component: RestaurantDetailsComponent },
   { path: 'customer', component: CustomerViewComponent },
   { path: 'customer/:id', component: RestaurantItemComponent },
   { path: '', component: LoginMenuComponent },
   { path: 'admin-menu', component: AdminMenuComponent },
+  { path: 'cart-details', component: CartDetailsComponent },
+
 
 
 ];

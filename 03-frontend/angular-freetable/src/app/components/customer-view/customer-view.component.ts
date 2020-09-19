@@ -39,5 +39,12 @@ export class CustomerViewComponent implements OnInit {
     this.router.navigate(['details', id]);
   }
 
+  addToCheckout(restaurant: Restaurant){
+    console.log(`Adding to checkout: ${restaurant.name}, ${restaurant.averagePriceForMeal}`);
+
+    // TODO ... do the real work
+    
+  }
+
 
 }

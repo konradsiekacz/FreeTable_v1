@@ -14,7 +14,7 @@
                         <h1>{{ restaurant.name }}</h1>
                       </a>
                       <!-- <div class="price"> Average price for meal: {{ tempRestaurant.averagePriceForMeal | currency:'PLN' }}</div> -->
-                      <a href="#" class="primary-btn">Reserve table</a>
+                      <a (click)="addToCheckout(restaurant)" class="primary-btn">Reserve table</a>
                   </div>
 
               </div>

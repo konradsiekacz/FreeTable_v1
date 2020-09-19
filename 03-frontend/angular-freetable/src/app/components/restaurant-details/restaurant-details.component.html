@@ -6,6 +6,7 @@
         <div>
           <label><b>Id: </b></label> {{restaurant.id}}
         </div>
+        
         <div>
           <label><b>Name: </b></label> {{restaurant.name}}
         </div>
@@ -17,7 +18,14 @@
         </div> 
         <div>
           <label><b>Image Url: </b></label> {{restaurant.imageUrl}}
-        </div>   
+        </div>
+        <div>
+          <label><b>Tables: {{restaurant.restaurantTables.length}} </b></label> <li *ngFor="let restaurantTable of restaurant.restaurantTables"> Table Number:
+            {{restaurantTable.tableId}}, number of seats: {{restaurantTable.numberOfSeats}}
+          </li>
+        </div>
+              
+              
       </div>
       
       <br>

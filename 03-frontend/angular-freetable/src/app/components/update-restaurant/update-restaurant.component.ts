@@ -41,7 +41,7 @@ export class UpdateRestaurantComponent implements OnInit {
   }
 
   gotoList() {
-    this.router.navigate(['/restaurants']);
+    this.router.navigate(['update']);
   }
 
 }
