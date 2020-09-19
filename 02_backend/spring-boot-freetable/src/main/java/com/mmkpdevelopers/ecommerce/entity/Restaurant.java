@@ -3,6 +3,8 @@ package com.mmkpdevelopers.ecommerce.entity;
 import lombok.Data;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name="restaurant")
@@ -24,11 +26,10 @@ public class Restaurant {
 
     @Column(name = "average_price_for_meal")
     private long averagePriceForMeal;
-//    private long id;
-//    private String name;
-//    private String address;
-//    private String imageUrl;
-//    private long averagePriceForMeal;
+
+    @OneToMany(mappedBy = "restaurant", cascade=CascadeType.ALL, orphanRemoval = true)
+    @JoinColumn(name = "id")
+    private List<RestaurantTable> restaurantTables = new ArrayList<RestaurantTable>();
 
 
 
@@ -88,6 +89,17 @@ public class Restaurant {
 
     public void setAveragePriceForMeal(long averagePriceForMeal) {
         this.averagePriceForMeal = averagePriceForMeal;
+    }
+
+    @OneToMany
+    @JoinColumn(name="id")
+    public List<RestaurantTable> getRestaurantTables() {
+        return restaurantTables;
+    }
+
+
+    public void setRestaurantTables(List<RestaurantTable> restaurantTables) {
+        this.restaurantTables = restaurantTables;
     }
 
     @Override
