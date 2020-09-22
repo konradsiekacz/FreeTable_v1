@@ -63,6 +63,4 @@ export class RestaurantService {
   getRestaurantsList(): Observable<any> {
     return this.http.get(`${this.baseUrl}`);
   }
-
-  
 }

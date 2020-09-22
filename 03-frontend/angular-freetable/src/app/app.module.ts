@@ -17,6 +17,7 @@ import { RestaurantItemComponent } from './components/restaurant-item/restaurant
 import { AdminMenuComponent } from './components/admin-menu/admin-menu.component';
 import { LoginMenuComponent } from './components/login-menu/login-menu.component';
 import { CartStatusComponent } from './components/cart-status/cart-status.component';
+import { RestuarantTableListComponent } from './components/restuarant-table-list/restuarant-table-list.component';
 
 @NgModule({
   declarations: [
@@ -31,6 +32,7 @@ import { CartStatusComponent } from './components/cart-status/cart-status.compon
     AdminMenuComponent,
     LoginMenuComponent,
     CartStatusComponent,
+    RestuarantTableListComponent,
   ],
   imports: [
     BrowserModule,

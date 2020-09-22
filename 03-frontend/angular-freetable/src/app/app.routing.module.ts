@@ -9,7 +9,8 @@ import { RestaurantItemComponent } from './components/restaurant-item/restaurant
 import { AdminMenuComponent } from './components/admin-menu/admin-menu.component';
 import { LoginMenuComponent } from './components/login-menu/login-menu.component';
 import { CartDetailsComponent } from './components/cart-details/cart-details.component';
-
+import {RestuarantTableListComponent} from './components/restuarant-table-list/restuarant-table-list.component';
+ 
 const routes: Routes = [
   { path: '', redirectTo: 'restaurant', pathMatch: 'full' },
   { path: 'admin-menu/restaurants', component: RestaurantListComponent },
@@ -21,6 +22,8 @@ const routes: Routes = [
   { path: '', component: LoginMenuComponent },
   { path: 'admin-menu', component: AdminMenuComponent },
   { path: 'cart-details', component: CartDetailsComponent },
+  { path: 'admin-menu/tables', component: RestuarantTableListComponent },
+
 
 
 
