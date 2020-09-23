@@ -1,12 +1,17 @@
 package com.mmkpdevelopers.ecommerce.config;
 
+import com.mmkpdevelopers.ecommerce.converter.RestaurantTableConverter;
+import com.mmkpdevelopers.ecommerce.dao.RestaurantTableRepository;
 import com.mmkpdevelopers.ecommerce.dto.RestaurantTableDto;
+import com.mmkpdevelopers.ecommerce.entity.RestaurantTable;
+import com.mmkpdevelopers.ecommerce.exception.ResourceNotFoundException;
 import com.mmkpdevelopers.ecommerce.service.RestaurantTableService;
+import io.micrometer.core.ipc.http.OkHttpSender;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
-import java.util.stream.Collectors;
-import static org.springframework.http.HttpStatus.CREATED;
-import static org.springframework.http.HttpStatus.NOT_FOUND;
 import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
 
 @CrossOrigin(origins = "http://localhost:4200")
@@ -15,17 +20,29 @@ import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
 public class RestaurantTableController {
 
 
-//    private RestaurantTableRepository restaurantTableRepository;
     private RestaurantTableService restaurantTableService;
+    private RestaurantTableConverter restaurantTableConverter;
 
-    public RestaurantTableController(RestaurantTableService restaurantTableService) {
+    public RestaurantTableController(RestaurantTableService restaurantTableService,
+                                     RestaurantTableConverter restaurantTableConverter) {
+
         this.restaurantTableService = restaurantTableService;
+        this.restaurantTableConverter = restaurantTableConverter;
     }
 
     @GetMapping(value = "/tables", produces = APPLICATION_JSON_VALUE)
+    @ResponseBody
+    @ResponseStatus(HttpStatus.OK)
     public List<RestaurantTableDto> getAllTables(){
-        return restaurantTableService.getAllRestaurantTables().stream()
-                .map(table -> new RestaurantTableDto(table.getId(), table.getTableId(), table.getNumberInRestaurant(), table.getNumberInRestaurant())).collect(Collectors.toList());
+        return restaurantTableConverter.entitiesToDto(restaurantTableService.getAllRestaurantTables());
+    }
+
+    @GetMapping(value = "table/{id}", produces = APPLICATION_JSON_VALUE)
+    @ResponseBody
+    @ResponseStatus(HttpStatus.OK)
+    public RestaurantTableDto getRestaurantTableById(@PathVariable Long id) throws ResourceNotFoundException {
+        RestaurantTable restaurantTable = restaurantTableService.getRestaurantTable(id);
+        return new RestaurantTableDto(restaurantTable.getId(), restaurantTable.getTableId(), restaurantTable.getNumberInRestaurant(), restaurantTable.getNumberOfSeats());
     }
 
 //    @GetMapping("/table/{id}")
