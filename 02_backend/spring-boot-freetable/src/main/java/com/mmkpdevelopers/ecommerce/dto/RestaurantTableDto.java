@@ -1,43 +1,27 @@
-package com.mmkpdevelopers.ecommerce.entity;
+package com.mmkpdevelopers.ecommerce.dto;
 
-import lombok.Data;
+import javax.persistence.Column;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
-import javax.persistence.*;
+public class RestaurantTableDto {
 
-@Embeddable
-@Entity
-@Table(name = "restaurant_table")
-@Data
-public class RestaurantTable {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "table_id")
     private long tableId;
-
-    @Column(name = "id")
     private long id;
-
-    @Column(name = "number_in_restaurant")
     private long numberInRestaurant;
-
-
-    @Column(name = "number_of_seats")
     private long numberOfSeats;
 
-    public RestaurantTable() {
+    public RestaurantTableDto() {
     }
 
-    public RestaurantTable(long tableId, long id, long numberInRestaurant, long numberOfSeats) {
-        this.tableId = tableId;
+    public RestaurantTableDto(long id, long tableId,long numberInRestaurant, long numberOfSeats) {
         this.id = id;
+        this.tableId = tableId;
         this.numberInRestaurant = numberInRestaurant;
         this.numberOfSeats = numberOfSeats;
     }
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "table_id")
     public long getTableId() {
         return tableId;
     }
@@ -46,7 +30,6 @@ public class RestaurantTable {
         this.tableId = tableId;
     }
 
-    @Column(name = "id", nullable = false)
     public long getId() {
         return id;
     }
@@ -55,7 +38,6 @@ public class RestaurantTable {
         this.id = id;
     }
 
-    @Column(name = "number_of_seats", nullable = false)
     public long getNumberOfSeats() {
         return numberOfSeats;
     }
@@ -64,7 +46,6 @@ public class RestaurantTable {
         this.numberOfSeats = numberOfSeats;
     }
 
-    @Column(name = "number_in_restaurant", nullable = false)
     public long getNumberInRestaurant() {
         return numberInRestaurant;
     }
