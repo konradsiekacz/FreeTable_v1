@@ -1,0 +1,36 @@
+<div class="main-content">
+  <div class="section-content section-content-p30">
+     <div class="container-fluid">
+      <hr/>
+      <div *ngIf="restaurant">
+        <div>
+          <label><b>Id: </b></label> {{restaurant.id}}
+        </div>
+        
+        <div>
+          <label><b>Name: </b></label> {{restaurant.name}}
+        </div>
+        <div>
+          <label><b>Address: </b></label> {{restaurant.address}}
+        </div>
+        <div>
+          <label><b>Average price for meal: </b></label> {{restaurant.averagePriceForMeal}}
+        </div> 
+        <div>
+          <label><b>Image Url: </b></label> {{restaurant.imageUrl}}
+        </div>
+        <div>
+          <label><b>Tables: {{restaurant.restaurantTables.length}} </b></label> <li *ngFor="let restaurantTable of restaurant.restaurantTables"> Table Number:
+            {{restaurantTable.tableId}}, number of seats: {{restaurantTable.numberOfSeats}}
+          </li>
+        </div>
+              
+              
+      </div>
+      
+      <br>
+      <br>
+      <button (click)="list()" class="btn btn-primary">Back to Restaurant List</button><br>
+     </div>
+  </div>
+</div>
