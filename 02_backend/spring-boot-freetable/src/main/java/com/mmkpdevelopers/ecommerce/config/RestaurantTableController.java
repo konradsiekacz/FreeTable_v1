@@ -13,7 +13,6 @@ import java.util.List;
 @RestController
 @RequestMapping("/api")
 public class RestaurantTableController {
-    RestaurantTable restaurantTable = new RestaurantTable();
 
     @Autowired
     private RestaurantTableRepository restaurantTableRepository;
