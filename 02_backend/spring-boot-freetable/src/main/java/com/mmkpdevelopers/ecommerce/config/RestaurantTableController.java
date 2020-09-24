@@ -11,7 +11,10 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import javax.validation.Valid;
 import java.util.List;
+
 import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
 
 @CrossOrigin(origins = "http://localhost:4200")
@@ -33,7 +36,7 @@ public class RestaurantTableController {
     @GetMapping(value = "/tables", produces = APPLICATION_JSON_VALUE)
     @ResponseBody
     @ResponseStatus(HttpStatus.OK)
-    public List<RestaurantTableDto> getAllTables(){
+    public List<RestaurantTableDto> getAllTables() {
         return restaurantTableConverter.entitiesToDto(restaurantTableService.getAllRestaurantTables());
     }
 
@@ -42,10 +45,12 @@ public class RestaurantTableController {
     @ResponseStatus(HttpStatus.OK)
     public RestaurantTableDto getRestaurantTableById(@PathVariable Long id) throws ResourceNotFoundException {
         RestaurantTable restaurantTable = restaurantTableService.getRestaurantTable(id);
-        return new RestaurantTableDto(restaurantTable.getId(), restaurantTable.getTableId(), restaurantTable.getNumberInRestaurant(), restaurantTable.getNumberOfSeats());
+        return new RestaurantTableDto(restaurantTable.getId(), restaurantTable.getTableId(),
+                restaurantTable.getNumberInRestaurant(),
+                restaurantTable.getNumberOfSeats());
     }
 
-//    @GetMapping("/table/{id}")
+    //    @GetMapping("/table/{id}")
 //    public ResponseEntity<RestaurantTable> getRestaurantTableById(@PathVariable(value = "id") Long restaurantTableId)
 //            throws ResourceNotFoundException {
 //        RestaurantTable restaurantTable = restaurantTableRepository.findById(restaurantTableId)
@@ -53,10 +58,12 @@ public class RestaurantTableController {
 //        return ResponseEntity.ok().body(restaurantTable);
 //    }
 //
-//    @PostMapping("/table")
-//    public RestaurantTable createRestaurantTable(@Valid @RequestBody RestaurantTable restaurantTable){
-//        return restaurantTableRepository.save(restaurantTable);
-//    }
+    @PostMapping("/table")
+    @ResponseBody
+    @ResponseStatus(HttpStatus.CREATED)
+    public RestaurantTable createRestaurantTable(@Valid @RequestBody RestaurantTableDto restaurantTableDto) {
+        return restaurantTableService.addRestaurantTable(restaurantTableConverter.DtoToEntity(restaurantTableDto));
+    }
 //
 //    @PutMapping("/table/{id}")
 //    public ResponseEntity<RestaurantTable> updateRestaurant(@PathVariable(value = "id") Long restaurantTableId,
