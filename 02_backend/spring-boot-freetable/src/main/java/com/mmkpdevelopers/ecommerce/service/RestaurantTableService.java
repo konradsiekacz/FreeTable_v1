@@ -1,12 +1,9 @@
 package com.mmkpdevelopers.ecommerce.service;
 
 import com.mmkpdevelopers.ecommerce.dao.RestaurantTableRepository;
-import com.mmkpdevelopers.ecommerce.dto.RestaurantTableDto;
 import com.mmkpdevelopers.ecommerce.entity.RestaurantTable;
 import com.mmkpdevelopers.ecommerce.exception.ResourceNotFoundException;
-import com.mmkpdevelopers.ecommerce.exception.RestaurantTableNotFoundExceptions;
 import org.springframework.stereotype.Service;
-import org.springframework.web.servlet.function.EntityResponse;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -32,5 +29,9 @@ public class RestaurantTableService {
                 .filter(table -> table.getId()==id)
                 .findAny()
                 .orElseThrow(()-> new ResourceNotFoundException("Table not found with given id"));
+    }
+
+    public RestaurantTable addRestaurantTable(RestaurantTable restaurantTable){
+       return restaurantTableRepository.save(restaurantTable);
     }
 }
