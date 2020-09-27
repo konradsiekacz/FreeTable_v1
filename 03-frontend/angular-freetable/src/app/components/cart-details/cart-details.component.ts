@@ -3,6 +3,9 @@ import { CartItem } from 'src/app/common/cart-item';
 import { Restaurant } from 'src/app/common/restaurant';
 import { CartService } from 'src/app/services/cart.service';
 import { RestaurantService } from 'src/app/services/restaurant.service';
+import { ReservationItem } from 'src/app/common/reservation-item';
+import {ReservationItemService} from 'src/app/services/reservation-item.service'
+
 
 @Component({
   selector: 'app-cart-details',
@@ -13,13 +16,21 @@ export class CartDetailsComponent implements OnInit {
 
   cartItems: CartItem[] = [];
   restaurant: Restaurant;
+  reservationItems: ReservationItem []=[];
   totalTables: number =0;
   totalSeats: number =0;
   constructor(private cartService: CartService,
-              private restaurantService: RestaurantService) { }
+              private restaurantService: RestaurantService,
+              private reservationItemService: ReservationItemService) { }
 
   ngOnInit(): void {
     this.listCartDetails()
+    this.listReservationItems()
+    // console.log(`check: ${this.listReservationItems[0][0]}`);
+    console.log(`check: ${this.listCartDetails.length}`);
+    console.log(this.reservationItems.length);    
+    
+    
   }
   listCartDetails() {
     // get a handle to the cart items
@@ -39,6 +50,35 @@ export class CartDetailsComponent implements OnInit {
     this.cartService.computeCartTotals();
 
   }
+  listReservationItems(){
+    this.reservationItems = this.cartService.reservationItems;
+  }
+  save(){
+    this.reservationItemService
+    .createReservationItems(this.cartItems).subscribe(data=>{
+      console.log(data)
+      
+      
+    },
+    error => console.log(error));
+    
+  }
+  // save(){
+  //   this.reservationItemService
+  //   .createReservationItems(this.reservationItems).subscribe(data=>{
+  //     console.log(data)
+  //     this.reservationItems = new ReservationItem();
+      
+  //   },
+  //   error => console.log(error));
+    
+  // }
+  // onSubmit(){
+  //   this.save();
+  //   console.log("Ahoj");
+
+  // }
+    
   
 
 }

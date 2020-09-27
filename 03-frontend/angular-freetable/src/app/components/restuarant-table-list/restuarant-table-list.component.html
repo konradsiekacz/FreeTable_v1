@@ -17,19 +17,19 @@
              <table class="table table-striped">
                 <thead>
                    <tr>
-                      <th>Id</th>
-                      <th>Number of Seats</th>
-                      <th>Address</th>
-                      <th>Average price for meal</th>
+                      <th>Restaurant Id</th>
+                      <th>Number in Restaurant</th>
+                      <th>Number of seats</th>
+                      <th>Table id</th>
                       <th>Actions</th>
                    </tr>
                 </thead>
                 <tbody>
                    <tr *ngFor="let restaurantTable of restaurantTables | async">
-                      <td>{{restaurantTable.}}</td>
-                      <td>{{restaurantTable.nu}}</td>
-                      <td>{{restaurantTable}}</td>
-                      <td>{{restaurant.averagePriceForMeal}}</td>
+                      <td>{{restaurantTable.id}}</td>
+                      <td>{{restaurantTable.numberInRestaurant}}</td>
+                      <td>{{restaurantTable.numberOfSeats}}</td>
+                      <td>{{restaurantTable.tableId}}</td>
                       <td><button (click)="deleteRestaurant(restaurant.id)" class="btn btn-danger">Delete</button>
                          <button (click)="restaurantDetails(restaurant.id)" class="btn btn-info"
                             style="margin-left: 10px">Details</button>

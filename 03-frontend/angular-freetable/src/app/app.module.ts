@@ -18,6 +18,7 @@ import { AdminMenuComponent } from './components/admin-menu/admin-menu.component
 import { LoginMenuComponent } from './components/login-menu/login-menu.component';
 import { CartStatusComponent } from './components/cart-status/cart-status.component';
 import { RestuarantTableListComponent } from './components/restuarant-table-list/restuarant-table-list.component';
+import { CartDetailsComponent } from './components/cart-details/cart-details.component';
 
 @NgModule({
   declarations: [
@@ -33,6 +34,7 @@ import { RestuarantTableListComponent } from './components/restuarant-table-list
     LoginMenuComponent,
     CartStatusComponent,
     RestuarantTableListComponent,
+    CartDetailsComponent,
   ],
   imports: [
     BrowserModule,

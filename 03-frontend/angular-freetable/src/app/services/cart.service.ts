@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import {CartItem} from '../common/cart-item'
 import { Subject } from 'rxjs';
+import { ReservationItem } from '../common/reservation-item';
 
 @Injectable({
   providedIn: 'root'
@@ -8,6 +9,7 @@ import { Subject } from 'rxjs';
 export class CartService {
 
   cartItems: CartItem[] = [];
+  reservationItems: ReservationItem[]= [];
 
   totalTables: Subject<number> = new Subject<number>();
 
@@ -45,6 +47,37 @@ export class CartService {
 
     // compute cart total price and total quantity
     this.computeCartTotals();
+  }
+
+  addToCheckout(theReservationItem: ReservationItem){
+    // check if we already have the reservation item in our reservation
+    let alreadyExistsInReservation: boolean = false;
+    let existingCartReservation: ReservationItem = undefined;
+
+    if (this.reservationItems.length > 0) {
+      // find the item in the reservation based on item id
+
+      for (let tempReservationItem of this.reservationItems) {
+        if (theReservationItem.tableId === theReservationItem.tableId) {
+          existingCartReservation = tempReservationItem;
+          break;
+        }
+      }
+
+      // check if we found it
+      alreadyExistsInReservation = (existingCartReservation != undefined);
+    }
+
+    if (alreadyExistsInReservation) {
+      // some statment we can use later
+      
+    }
+    else {
+      // just add the item to the array
+      this.reservationItems.push(theReservationItem);
+    }
+
+    
   }
   computeCartTotals() {
 
