@@ -13,7 +13,7 @@ export class RestuarantTableListComponent implements OnInit {
 
   restaurantTables: Observable<RestaurantTable[]>;
 
-  constructor(private restaurantTablesService: RestaurantTableService,
+  constructor(private restaurantTableService: RestaurantTableService,
     private router: Router) {}
 
   ngOnInit() {
@@ -21,11 +21,11 @@ export class RestuarantTableListComponent implements OnInit {
   }
 
   reloadData() {
-    this.restaurantTables = this.restaurantTablesService.getRestaurantTablesList();
+    this.restaurantTables = this.restaurantTableService.getRestaurantTablesList();
   }
 
-  deleteRestaurantTable(id: number) {
-    this.restaurantTablesService.deleteRestaurantTable(id)
+  deleteRestaurantTable(tableId: number) {
+    this.restaurantTableService.deleteRestaurantTable(tableId)
       .subscribe(
         data => {
           console.log(data);
@@ -34,11 +34,11 @@ export class RestuarantTableListComponent implements OnInit {
         error => console.log(error));
   }
 
-  restaurantTableDetails(id: number){
-    this.router.navigate(['details', id]);
+  restaurantTableDetails(tableId: number){
+    this.router.navigate(['details', tableId]);
   }
   
-  updateRestaurantTable(id: number){
-    this.router.navigate(['update',id])
+  updateRestaurantTable(tableId: number){
+    this.router.navigate(['update',tableId])
   }
 }

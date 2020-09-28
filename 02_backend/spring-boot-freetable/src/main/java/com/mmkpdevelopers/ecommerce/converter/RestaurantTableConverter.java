@@ -28,7 +28,7 @@ public class RestaurantTableConverter {
         RestaurantTable restaurantTable = new RestaurantTable();
         restaurantTable.setId(restaurantTableDto.getId());
         restaurantTable.setTableId(restaurantTableDto.getTableId());
-        restaurantTable.setNumberInRestaurant(restaurantTable.getNumberOfSeats());
+        restaurantTable.setNumberInRestaurant(restaurantTableDto.getNumberInRestaurant());
         restaurantTable.setNumberOfSeats(restaurantTableDto.getNumberOfSeats());
         return restaurantTable;
     }

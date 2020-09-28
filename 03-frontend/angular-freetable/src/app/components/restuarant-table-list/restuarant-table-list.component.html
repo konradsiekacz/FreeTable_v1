@@ -10,7 +10,7 @@
             <br>
             
             <button (click)="createCustomer" type="button" class="btn btn-primary btn-lg" routerLink="add"
-            routerLinkActive="active">Create restaurant</button>
+            routerLinkActive="active">Create restaurant table</button>
   
             <br>
             <br>
@@ -30,10 +30,10 @@
                       <td>{{restaurantTable.numberInRestaurant}}</td>
                       <td>{{restaurantTable.numberOfSeats}}</td>
                       <td>{{restaurantTable.tableId}}</td>
-                      <td><button (click)="deleteRestaurant(restaurant.id)" class="btn btn-danger">Delete</button>
-                         <button (click)="restaurantDetails(restaurant.id)" class="btn btn-info"
+                      <td><button (click)="deleteRestaurantTable(restaurantTable.tableId)" class="btn btn-danger">Delete</button>
+                         <button (click)="restaurantTableDetails(restaurantTable.tableId)" class="btn btn-info"
                             style="margin-left: 10px">Details</button>
-                         <button (click)="updateRestaurant(restaurant.id)" class="btn btn-info"
+                         <button (click)="updateRestaurantTable(restaurantTable.tableId)" class="btn btn-info"
                             style="margin-left: 10px">Update</button>
                       </td>
                    </tr>

@@ -1,6 +1,7 @@
 package com.mmkpdevelopers.ecommerce.entity;
 
 import lombok.Data;
+import org.springframework.context.annotation.EnableMBeanExport;
 
 import javax.persistence.*;
 
@@ -9,6 +10,7 @@ import javax.persistence.*;
 @Table(name = "restaurant_table")
 @Data
 public class RestaurantTable {
+
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -20,7 +22,6 @@ public class RestaurantTable {
 
     @Column(name = "number_in_restaurant")
     private long numberInRestaurant;
-
 
     @Column(name = "number_of_seats")
     private long numberOfSeats;
@@ -36,7 +37,7 @@ public class RestaurantTable {
     }
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "table_id")
     public long getTableId() {
         return tableId;

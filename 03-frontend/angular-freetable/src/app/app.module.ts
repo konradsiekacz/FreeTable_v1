@@ -18,6 +18,9 @@ import { AdminMenuComponent } from './components/admin-menu/admin-menu.component
 import { LoginMenuComponent } from './components/login-menu/login-menu.component';
 import { CartStatusComponent } from './components/cart-status/cart-status.component';
 import { RestuarantTableListComponent } from './components/restuarant-table-list/restuarant-table-list.component';
+import { CreateRestaurantTableComponent } from './components/create-restaurant-table/create-restaurant-table.component';
+import { RestaurantTableDetailsComponent } from './components/restaurant-table-details/restaurant-table-details.component';
+import { RestaurantTableService } from './services/restaurant-table-service.service';
 
 @NgModule({
   declarations: [
@@ -33,6 +36,8 @@ import { RestuarantTableListComponent } from './components/restuarant-table-list
     LoginMenuComponent,
     CartStatusComponent,
     RestuarantTableListComponent,
+    CreateRestaurantTableComponent,
+    RestaurantTableDetailsComponent,
   ],
   imports: [
     BrowserModule,
@@ -40,7 +45,7 @@ import { RestuarantTableListComponent } from './components/restuarant-table-list
     FormsModule,
     AppRoutingModule
   ],
-  providers: [RestaurantService],
+  providers: [RestaurantService, RestaurantTableService],
   
   bootstrap: [AppComponent]
 })
