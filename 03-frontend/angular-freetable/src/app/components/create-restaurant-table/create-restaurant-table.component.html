@@ -1,0 +1,41 @@
+
+<div class="main-content">
+    <div class="section-content section-content-p30">
+       <div class="container-fluid">
+          
+  
+            <h3>Create Restaurant table</h3>
+            <div [hidden]="submitted" style="width: 400px;">
+              <form (ngSubmit)="onSubmit()">
+                <div class="form-group">
+                  <label for="name">Restaurant id</label>
+                  <input type="text" class="form-control" id="id" required [(ngModel)]="restaurantTable.id" name="id">
+                </div>
+            
+                <div class="form-group">
+                  <label for="name">Number in restaurant</label>
+                  <input type="text" class="form-control" id="numberInRestaurant" required [(ngModel)]="restaurantTable.numberInRestaurant" name="numberInRestaurant">
+                </div>
+            
+                <div class="form-group">
+                  <label for="name">Number of seats</label>
+                  <input type="text" class="form-control" id="numberOfSeats" required [(ngModel)]="restaurantTable.numberOfSeats" name="numberOfSeats">
+                </div>
+            
+                <div class="form-group">
+                  <label for="name">Restaurant table id</label>
+                  <input type="text" class="form-control" id="tableId" required [(ngModel)]="restaurantTable.tableId" name="tableId">
+                </div>
+            
+                <button type="submit" class="btn btn-success">Submit</button>
+              </form>
+            </div>
+            
+            <div [hidden]="!submitted">
+              <h4>Table added successfully!</h4>
+              <!-- <button class="btn btn-success" (click)="newRestaurant()">Add</button> -->
+              <button (click)="list()" class="btn btn-primary">Back to Restaurant table list</button><br>
+            </div>
+       </div>
+    </div>
+  </div>
