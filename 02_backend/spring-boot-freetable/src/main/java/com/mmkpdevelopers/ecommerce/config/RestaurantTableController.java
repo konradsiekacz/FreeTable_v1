@@ -47,8 +47,8 @@ public class RestaurantTableController {
     @GetMapping(value = "/tables/{id}", produces = APPLICATION_JSON_VALUE)
     @ResponseBody
     @ResponseStatus(HttpStatus.OK)
-    public RestaurantTableDto getRestaurantTableById(@PathVariable (value = "id") Long id) throws ResourceNotFoundException {
-        RestaurantTable restaurantTable = restaurantTableService.getRestaurantTable(id);
+    public RestaurantTableDto getRestaurantTableById(@PathVariable (value = "id") Long tableId) throws ResourceNotFoundException {
+        RestaurantTable restaurantTable = restaurantTableService.getRestaurantTable(tableId);
         return new RestaurantTableDto(restaurantTable.getTableId(), restaurantTable.getId(),
                 restaurantTable.getNumberInRestaurant(),
                 restaurantTable.getNumberOfSeats());

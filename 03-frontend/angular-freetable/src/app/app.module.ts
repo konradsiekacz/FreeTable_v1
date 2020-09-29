@@ -21,6 +21,7 @@ import { RestuarantTableListComponent } from './components/restuarant-table-list
 import { CreateRestaurantTableComponent } from './components/create-restaurant-table/create-restaurant-table.component';
 import { RestaurantTableDetailsComponent } from './components/restaurant-table-details/restaurant-table-details.component';
 import { RestaurantTableService } from './services/restaurant-table-service.service';
+import { UpdateRestaurantTableComponent } from 'src/app/components/update-restaurant-table/update-restaurant-table.component';
 
 @NgModule({
   declarations: [
@@ -38,6 +39,7 @@ import { RestaurantTableService } from './services/restaurant-table-service.serv
     RestuarantTableListComponent,
     CreateRestaurantTableComponent,
     RestaurantTableDetailsComponent,
+    UpdateRestaurantTableComponent,
   ],
   imports: [
     BrowserModule,

@@ -12,9 +12,10 @@ import { CartDetailsComponent } from './components/cart-details/cart-details.com
 import {RestuarantTableListComponent} from './components/restuarant-table-list/restuarant-table-list.component';
 import {RestaurantTableDetailsComponent} from './components/restaurant-table-details/restaurant-table-details.component'
 import { CreateRestaurantTableComponent } from './components/create-restaurant-table/create-restaurant-table.component';
+import { UpdateRestaurantTableComponent } from './components/update-restaurant-table/update-restaurant-table.component';
  
 const routes: Routes = [
-  { path: '', redirectTo: 'restaurant', pathMatch: 'full' },
+  // { path: '', redirectTo: 'restaurant', pathMatch: 'full' },
   { path: 'admin-menu/restaurants', component: RestaurantListComponent },
   { path: 'admin-menu/restaurants/add', component: CreateRestaurantComponent },
   { path: 'update/:id', component: UpdateRestaurantComponent },
@@ -24,10 +25,11 @@ const routes: Routes = [
   { path: '', component: LoginMenuComponent },
   { path: 'admin-menu', component: AdminMenuComponent },
   { path: 'cart-details', component: CartDetailsComponent },
-  { path: '', redirectTo: 'tables', pathMatch: 'full' },
+  // { path: '', redirectTo: 'tables', pathMatch: 'full' },
   { path: 'admin-menu/tables', component: RestuarantTableListComponent },
-  { path : 'admin-menu/tables/details/:id', component: RestaurantTableDetailsComponent },
+  { path: 'admin-menu/tables/details/:id', component: RestaurantTableDetailsComponent },
   { path: 'admin-menu/tables/add', component: CreateRestaurantTableComponent },
+  { path: 'admin-menu/tables/update/:id', component: UpdateRestaurantTableComponent },
 
 
 

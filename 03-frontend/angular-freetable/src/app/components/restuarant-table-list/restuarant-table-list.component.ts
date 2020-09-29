@@ -35,10 +35,10 @@ export class RestuarantTableListComponent implements OnInit {
   }
 
   restaurantTableDetails(tableId: number){
-    this.router.navigate(['details', tableId]);
+    this.router.navigate(['admin-menu/tables/details', tableId]);
   }
   
   updateRestaurantTable(tableId: number){
-    this.router.navigate(['update',tableId])
+    this.router.navigate(['admin-menu/tables/update',tableId])
   }
 }

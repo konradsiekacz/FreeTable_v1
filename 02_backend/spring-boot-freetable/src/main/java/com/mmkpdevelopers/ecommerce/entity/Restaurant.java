@@ -92,7 +92,7 @@ public class Restaurant {
     }
 
     @OneToMany
-    @JoinColumn(name="id")
+    @JoinColumn(name = "id")
     public List<RestaurantTable> getRestaurantTables() {
         return restaurantTables;
     }

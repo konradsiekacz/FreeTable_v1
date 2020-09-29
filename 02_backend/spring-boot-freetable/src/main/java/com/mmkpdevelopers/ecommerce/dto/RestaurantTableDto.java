@@ -17,9 +17,9 @@ public class RestaurantTableDto {
     public RestaurantTableDto() {
     }
 
-    public RestaurantTableDto(long id, long tableId, long numberInRestaurant, long numberOfSeats) {
-        this.id = id;
+    public RestaurantTableDto(long tableId, long id, long numberInRestaurant, long numberOfSeats) {
         this.tableId = tableId;
+        this.id = id;
         this.numberInRestaurant = numberInRestaurant;
         this.numberOfSeats = numberOfSeats;
     }

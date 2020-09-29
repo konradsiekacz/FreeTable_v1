@@ -31,9 +31,9 @@ public class RestaurantTableService {
                 .collect(Collectors.toList());
     }
 
-    public RestaurantTable getRestaurantTable(Long id) throws ResourceNotFoundException {
+    public RestaurantTable getRestaurantTable(Long tableId) throws ResourceNotFoundException {
         return restaurantTableRepository.findAll().stream()
-                .filter(table -> table.getTableId() == id)
+                .filter(table -> table.getTableId() == tableId)
                 .findAny()
                 .orElseThrow(() -> new ResourceNotFoundException("Table not found with given id"));
     }
