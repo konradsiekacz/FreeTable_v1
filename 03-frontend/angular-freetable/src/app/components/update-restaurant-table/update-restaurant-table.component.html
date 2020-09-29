@@ -1,0 +1,22 @@
+<h3>Update Restaurant table</h3>
+<div style="width: 400px;">
+  <form (ngSubmit)="onSubmit()">
+
+    <div class="form-group">
+      <label for="name">Restaurant id: </label>
+      <input type="text" class="form-control" id="restaurantId" required [(ngModel)]="restaurantTable.id" name="restaurantId">
+    </div>
+
+    <div class="form-group">
+      <label for="name">Number in restaurant</label>
+      <input type="text" class="form-control" id="numberInRestaurant" required [(ngModel)]="restaurantTable.numberInRestaurant" name="numberInRestaurant">
+    </div>
+
+    <div class="form-group">
+        <label for="name">Number of seats</label>
+        <input type="text" class="form-control" id="numberOfSeats" required [(ngModel)]="restaurantTable.numberOfSeats" name="numberOfSeats">
+      </div>
+
+    <button type="submit" class="btn btn-success">Submit</button>
+  </form>
+</div>
