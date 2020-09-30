@@ -1,10 +1,14 @@
 package com.mmkpdevelopers.ecommerce.dto;
 
 import com.mmkpdevelopers.ecommerce.entity.RestaurantTable;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.util.ArrayList;
 import java.util.List;
 
+@Getter
+@Setter
 public class RestaurantDTO {
 
     private long id;
