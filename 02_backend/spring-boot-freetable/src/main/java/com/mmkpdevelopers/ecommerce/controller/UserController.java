@@ -8,6 +8,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
+import javax.transaction.Transactional;
 import java.util.List;
 
 @CrossOrigin(origins = "http://localhost:4200")
@@ -34,20 +35,21 @@ public class UserController {
         return UserConverter.entityToDto(userService.getUserById(id));
     }
 
-    @PostMapping()
+    @PostMapping("/users")
     @ResponseBody
     @ResponseStatus(HttpStatus.CREATED)
     public void addUser(@RequestBody UserDTO userDTO){
         userService.addUser(UserConverter.dtoToEntity(userDTO));
     }
 
-    @PutMapping
+    @PutMapping("/users")
     @ResponseBody
     @ResponseStatus(HttpStatus.OK)
     public void updateUser(@RequestBody User user){
         userService.updateUser(user);
     }
 
+    @Transactional
     @DeleteMapping("/users/{id}")
     @ResponseBody
     @ResponseStatus(HttpStatus.NO_CONTENT)
