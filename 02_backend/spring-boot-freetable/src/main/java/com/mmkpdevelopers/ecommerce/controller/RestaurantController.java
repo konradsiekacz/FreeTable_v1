@@ -1,4 +1,4 @@
-package com.mmkpdevelopers.ecommerce.config;
+package com.mmkpdevelopers.ecommerce.controller;
 
 import com.mmkpdevelopers.ecommerce.dao.RestaurantRepository;
 import com.mmkpdevelopers.ecommerce.entity.Restaurant;
