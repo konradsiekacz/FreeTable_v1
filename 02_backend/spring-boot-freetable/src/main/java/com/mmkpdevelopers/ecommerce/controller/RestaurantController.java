@@ -26,7 +26,7 @@ public class RestaurantController {
 	public List<RestaurantDTO> getAllRestaurants() {
 		return RestaurantConverter.entitiesToDto(restaurantService.getAllRestaurants());
 	}
-
+	
 	@GetMapping(value = "/restaurants/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
 	@ResponseBody
 	@ResponseStatus(HttpStatus.OK)

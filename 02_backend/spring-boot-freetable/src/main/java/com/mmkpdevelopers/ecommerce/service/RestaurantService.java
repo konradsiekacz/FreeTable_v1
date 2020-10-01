@@ -38,17 +38,6 @@ public class RestaurantService {
         restaurantRepository.save(existingRestaurant);
     }
 
-//    public Map<String, Boolean> deleteRestaurant(Long id)
-//            throws org.springframework.data.rest.webmvc.ResourceNotFoundException {
-//        Restaurant restaurant = restaurantRepository.findById(id)
-//                .orElseThrow(() -> new org.springframework.data.rest.webmvc.ResourceNotFoundException("Restaurant not found for this id :: " + id));
-//
-//        restaurantRepository.delete(restaurant);
-//        Map<String, Boolean> response = new HashMap<>();
-//        response.put("deleted", Boolean.TRUE);
-//        return response;
-//    }
-
     public void deleteRestaurantById(Long id) {
         restaurantRepository.deleteById(id);
     }

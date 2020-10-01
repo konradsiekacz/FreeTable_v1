@@ -9,25 +9,25 @@ import java.util.stream.Collectors;
 
 @Component
 public class RestaurantTableConverter {
-    public RestaurantTableDTO entityToDto(RestaurantTable restaurantTable) {
+    public static RestaurantTableDTO entityToDto(RestaurantTable restaurantTable) {
         RestaurantTableDTO restaurantTableDTO = new RestaurantTableDTO();
-        restaurantTableDTO.setId(restaurantTable.getId());
         restaurantTableDTO.setTableId(restaurantTable.getTableId());
+        restaurantTableDTO.setId(restaurantTable.getId());
         restaurantTableDTO.setNumberInRestaurant(restaurantTable.getNumberInRestaurant());
         restaurantTableDTO.setNumberOfSeats(restaurantTable.getNumberOfSeats());
         return restaurantTableDTO;
     }
 
-    public List<RestaurantTableDTO> entitiesToDto(List<RestaurantTable> restaurantTables) {
+    public static List<RestaurantTableDTO> entitiesToDto(List<RestaurantTable> restaurantTables) {
         return restaurantTables.stream()
                 .map(restaurantTable -> entityToDto(restaurantTable))
                 .collect(Collectors.toList());
     }
 
-    public RestaurantTable DtoToEntity(RestaurantTableDTO restaurantTableDTO) {
+    public static RestaurantTable DtoToEntity(RestaurantTableDTO restaurantTableDTO) {
         RestaurantTable restaurantTable = new RestaurantTable();
-        restaurantTable.setId(restaurantTableDTO.getId());
         restaurantTable.setTableId(restaurantTableDTO.getTableId());
+        restaurantTable.setId(restaurantTableDTO.getId());
         restaurantTable.setNumberInRestaurant(restaurantTableDTO.getNumberInRestaurant());
         restaurantTable.setNumberOfSeats(restaurantTableDTO.getNumberOfSeats());
         return restaurantTable;
