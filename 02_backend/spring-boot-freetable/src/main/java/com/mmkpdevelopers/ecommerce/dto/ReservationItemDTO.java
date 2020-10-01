@@ -1,5 +1,10 @@
 package com.mmkpdevelopers.ecommerce.dto;
 
+import lombok.Getter;
+import lombok.Setter;
+
+@Getter
+@Setter
 public class ReservationItemDTO {
 
     private long reservationItemId;
@@ -46,7 +51,6 @@ public class ReservationItemDTO {
             this.numberOfSeats = numberOfSeats;
             return this;
         }
-
 
         public ReservationItemDTO build() {
             ReservationItemDTO reservationItemDTO = new ReservationItemDTO();
