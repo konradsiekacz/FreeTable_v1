@@ -21,7 +21,7 @@ public class ReservationItemConverter {
         return reservationItemDTO;
     }
 
-    public static List<ReservationItemDTO> enititesToDto(List<ReservationItem> reservationItemList){
+    public static List<ReservationItemDTO> entitiesToDto(List<ReservationItem> reservationItemList){
         return reservationItemList.stream()
                 .map(ReservationItemConverter::entityToDto)
                 .collect(Collectors.toList());
