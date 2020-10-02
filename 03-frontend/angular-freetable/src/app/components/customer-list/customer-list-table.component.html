@@ -1,0 +1,23 @@
+<table class="table">
+
+  <thead class="thead-dark">
+      <tr>
+          <th></th>
+          <th>Name</th>
+          <th>First Name</th>
+          <th>Phone number</th>
+      </tr>
+  </thead>
+
+  <tbody>
+      <tr *ngFor="let tempCustomer of customers">
+          <td class="align-middle">
+              <img src="{{ tempCustomer.imageUrl }}" height="50" />
+          </td>
+          <td class="align-middle">{{ tempCustomer.name}}</td>
+          <td class="align-middle">{{ tempCustomer.phoneNumber | currency:'USD'}}</td>
+          <td class="align-middle">{{ tempCustomer.phoneNumber}}</td>
+      </tr>
+
+  </tbody>
+</table>

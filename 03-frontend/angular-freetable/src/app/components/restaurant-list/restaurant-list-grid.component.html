@@ -1,0 +1,20 @@
+<div class="main-content">
+  <div class="section-content section-content-p30">
+      <div class="container-fluid">
+          <div class="row">
+
+              <!-- loop over the collection of products -->
+              <div *ngFor="let restaurant of restaurants" class="col-md-3">
+
+                  <div class="product-box">
+                      <img src="{{ restaurant.imageUrl }}" class="img-responsive">
+                      <h1>{{ restaurant.name }}</h1>
+                      <!-- <div class="price"> Average price for meal: {{ tempRestaurant.averagePriceForMeal | currency:'PLN' }}</div> -->
+                      <a href="#" class="primary-btn">Reserve table</a>
+                  </div>
+
+              </div>
+          </div>
+      </div>
+  </div>
+</div>

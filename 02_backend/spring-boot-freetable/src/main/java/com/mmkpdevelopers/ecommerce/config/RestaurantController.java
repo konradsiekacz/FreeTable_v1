@@ -63,5 +63,5 @@ public class RestaurantController {
 		Map<String, Boolean> response = new HashMap<>();
 		response.put("deleted", Boolean.TRUE);
 		return response;
-	}
+
 }

@@ -1,0 +1,45 @@
+<div class="main-content">
+  <div class="section-content section-content-p30">
+     <div class="container-fluid">
+        <div class="row">
+           <h2>Restaurant List</h2>
+           
+           
+        </div>
+        <div class="panel-body">
+          <br>
+          
+          <button (click)="createCustomer" type="button" class="btn btn-primary btn-lg" routerLink="add"
+          routerLinkActive="active">Create restaurant</button>
+
+          <br>
+          <br>
+           <table class="table table-striped">
+              <thead>
+                 <tr>
+                    <th>Id</th>
+                    <th>Name</th>
+                    <th>Address</th>
+                    <th>Average price for meal</th>
+                    <th>Actions</th>
+                 </tr>
+              </thead>
+              <tbody>
+                 <tr *ngFor="let restaurant of restaurants | async">
+                    <td>{{restaurant.id}}</td>
+                    <td>{{restaurant.name}}</td>
+                    <td>{{restaurant.address}}</td>
+                    <td>{{restaurant.averagePriceForMeal}}</td>
+                    <td><button (click)="deleteRestaurant(restaurant.id)" class="btn btn-danger">Delete</button>
+                       <button (click)="restaurantDetails(restaurant.id)" class="btn btn-info"
+                          style="margin-left: 10px">Details</button>
+                       <button (click)="updateRestaurant(restaurant.id)" class="btn btn-info"
+                          style="margin-left: 10px">Update</button>
+                    </td>
+                 </tr>
+              </tbody>
+           </table>
+        </div>
+     </div>
+  </div>
+</div>

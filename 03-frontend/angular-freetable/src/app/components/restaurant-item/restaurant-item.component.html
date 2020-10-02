@@ -1,0 +1,39 @@
+<div class="detail-section">
+    <div class="container-fluid">
+
+        <img src="{{ restaurant?.imageUrl }}" class="detail-img">
+
+        <h3>{{ restaurant.name }}</h3>
+        <div class="price">Average price for meal: {{ restaurant.averagePriceForMeal | currency:'USD' }}</div>
+        <a href="#" class="primary-btn">Make a reservation</a>
+
+        <hr>
+        <h4>Seating</h4>
+        <table class="table table-striped">
+            <thead>
+               <tr>
+                  <th>Table number</th>
+                  <th>Number of seats</th>
+                  <th>Actions</th>                
+                
+               </tr>
+            </thead>
+            <tbody>
+               <tr *ngFor="let restaurantTable of restaurant.restaurantTables ">
+                  <td>{{restaurantTable.numberInRestaurant}}</td>
+                  <td>{{restaurantTable.numberOfSeats}}</td>
+                  <td><button (click)="addToCart(restaurantTable)" class="btn btn-danger">Reserve table</button>
+                    
+                 
+               </tr>
+            </tbody>
+         </table>
+        
+        
+        <br>
+        <a routerLink="/customer" class="btn btn-primary">Back to Restaurant List</a>
+        <br>
+        <br>
+
+    </div>
+</div>
