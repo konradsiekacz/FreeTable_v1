@@ -1,7 +1,6 @@
 package com.mmkpdevelopers.ecommerce.entity;
 
 import lombok.Data;
-
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -30,8 +29,6 @@ public class Restaurant {
     @OneToMany(mappedBy = "restaurant", cascade=CascadeType.ALL, orphanRemoval = true)
     @JoinColumn(name = "id")
     private List<RestaurantTable> restaurantTables = new ArrayList<RestaurantTable>();
-
-
 
     public Restaurant(){
 
@@ -96,7 +93,6 @@ public class Restaurant {
     public List<RestaurantTable> getRestaurantTables() {
         return restaurantTables;
     }
-
 
     public void setRestaurantTables(List<RestaurantTable> restaurantTables) {
         this.restaurantTables = restaurantTables;
