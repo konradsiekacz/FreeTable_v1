@@ -14,6 +14,18 @@ public class ReservationItemDTO {
     private long numberInRestaurant;
     private long numberOfSeats;
 
+    public ReservationItemDTO() {
+    }
+
+    public ReservationItemDTO(long reservationItemId, String restaurantName, long id, long table_id, long numberInRestaurant, long numberOfSeats) {
+        this.reservationItemId = reservationItemId;
+        this.restaurantName = restaurantName;
+        this.id = id;
+        this.table_id = table_id;
+        this.numberInRestaurant = numberInRestaurant;
+        this.numberOfSeats = numberOfSeats;
+    }
+
     public static final class Builder {
         private long reservationItemId;
         private String restaurantName;
