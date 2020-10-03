@@ -3,6 +3,10 @@ import { CartItem } from 'src/app/common/cart-item';
 import { Restaurant } from 'src/app/common/restaurant';
 import { CartService } from 'src/app/services/cart.service';
 import { RestaurantService } from 'src/app/services/restaurant.service';
+import { ReservationItem } from 'src/app/common/reservation-item';
+import {ReservationItemService} from 'src/app/services/reservation-item.service'
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-cart-details',
@@ -13,13 +17,26 @@ export class CartDetailsComponent implements OnInit {
 
   cartItems: CartItem[] = [];
   restaurant: Restaurant;
+  reservationItems: ReservationItem []=[];
+
   totalTables: number =0;
   totalSeats: number =0;
+
+  submitted = false;
+
   constructor(private cartService: CartService,
-              private restaurantService: RestaurantService) { }
+              private restaurantService: RestaurantService,
+              private reservationItemService: ReservationItemService,
+              private router: Router) { }
 
   ngOnInit(): void {
     this.listCartDetails()
+    this.listReservationItems()
+    // console.log(`check: ${this.listReservationItems[0][0]}`);
+    console.log(`check: ${this.listCartDetails.length}`);
+    console.log(this.reservationItems.length);    
+    
+    
   }
   listCartDetails() {
     // get a handle to the cart items
@@ -39,6 +56,32 @@ export class CartDetailsComponent implements OnInit {
     this.cartService.computeCartTotals();
 
   }
+  listReservationItems(){
+    this.reservationItems = this.cartService.reservationItems;
+  }
+  save(){
+    this.reservationItemService
+    .createReservationItems(this.cartItems).subscribe(data=>{
+      console.log(data)
+      // this.gotoList();
+
+      
+    },
+    error => console.log(error));
+    
+  }
+  
+  onSubmit() {
+    this.submitted = true;
+    this.save();    
+  }
+  gotoList() {
+    this.router.navigate(['customer']);
+  }
+  list(){
+    this.router.navigate(['customer']);
+  }
+    
   
 
 }

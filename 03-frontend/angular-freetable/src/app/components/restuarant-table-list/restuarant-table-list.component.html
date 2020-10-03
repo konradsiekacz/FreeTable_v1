@@ -17,8 +17,8 @@
              <table class="table table-striped">
                 <thead>
                    <tr>
-                      <th>Restaurant id</th>
-                      <th>Number in restaurant</th>
+                      <th>Restaurant Id</th>
+                      <th>Number in Restaurant</th>
                       <th>Number of seats</th>
                       <th>Table id</th>
                       <th>Actions</th>
@@ -33,6 +33,11 @@
                       <td><button (click)="deleteRestaurantTable(restaurantTable.tableId)" class="btn btn-danger">Delete</button>
                          <button (click)="restaurantTableDetails(restaurantTable.tableId)" class="btn btn-info" style="margin-left: 10px">Details</button>
                          <button (click)="updateRestaurantTable(restaurantTable.tableId)" class="btn btn-info" style="margin-left: 10px">Update</button>
+                      <td><button (click)="deleteRestaurant(restaurant.id)" class="btn btn-danger">Delete</button>
+                         <button (click)="restaurantDetails(restaurant.id)" class="btn btn-info"
+                            style="margin-left: 10px">Details</button>
+                         <button (click)="updateRestaurant(restaurant.id)" class="btn btn-info"
+                            style="margin-left: 10px">Update</button>
                       </td>
                    </tr>
                 </tbody>

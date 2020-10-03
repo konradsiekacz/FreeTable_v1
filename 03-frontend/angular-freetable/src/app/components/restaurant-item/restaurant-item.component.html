@@ -22,7 +22,7 @@
                <tr *ngFor="let restaurantTable of restaurant.restaurantTables ">
                   <td>{{restaurantTable.numberInRestaurant}}</td>
                   <td>{{restaurantTable.numberOfSeats}}</td>
-                  <td><button (click)="addToCart(restaurantTable)" class="btn btn-danger">Reserve table</button>
+                  <td><button (click)="addToCart(restaurantTable, restaurant)" (click)="addToCheckout(restaurantTable, restaurant)" class="btn btn-danger">Reserve table</button>
                     
                  
                </tr>
