@@ -6,4 +6,6 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 
 @CrossOrigin("http://localhost:4200")
 public interface ReservationItemRepository extends JpaRepository<ReservationItem, Long> {
+    ReservationItem getReservationItemById(Long id);
+    ReservationItem deleteReservationItemById(long id);
 }

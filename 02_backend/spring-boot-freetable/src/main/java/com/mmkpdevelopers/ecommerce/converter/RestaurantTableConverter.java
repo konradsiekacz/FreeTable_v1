@@ -1,6 +1,6 @@
 package com.mmkpdevelopers.ecommerce.converter;
 
-import com.mmkpdevelopers.ecommerce.dto.RestaurantTableDto;
+import com.mmkpdevelopers.ecommerce.dto.RestaurantTableDTO;
 import com.mmkpdevelopers.ecommerce.entity.RestaurantTable;
 import org.springframework.stereotype.Component;
 
@@ -9,27 +9,27 @@ import java.util.stream.Collectors;
 
 @Component
 public class RestaurantTableConverter {
-    public RestaurantTableDto entityToDto(RestaurantTable restaurantTable) {
-        RestaurantTableDto restaurantTableDto = new RestaurantTableDto();
-        restaurantTableDto.setId(restaurantTable.getId());
-        restaurantTableDto.setTableId(restaurantTable.getTableId());
-        restaurantTableDto.setNumberInRestaurant(restaurantTable.getNumberInRestaurant());
-        restaurantTableDto.setNumberOfSeats(restaurantTable.getNumberOfSeats());
-        return restaurantTableDto;
+    public static RestaurantTableDTO entityToDto(RestaurantTable restaurantTable) {
+        RestaurantTableDTO restaurantTableDTO = new RestaurantTableDTO();
+        restaurantTableDTO.setTableId(restaurantTable.getTableId());
+        restaurantTableDTO.setId(restaurantTable.getId());
+        restaurantTableDTO.setNumberInRestaurant(restaurantTable.getNumberInRestaurant());
+        restaurantTableDTO.setNumberOfSeats(restaurantTable.getNumberOfSeats());
+        return restaurantTableDTO;
     }
 
-    public List<RestaurantTableDto> entitiesToDto(List<RestaurantTable> restaurantTables) {
+    public static List<RestaurantTableDTO> entitiesToDto(List<RestaurantTable> restaurantTables) {
         return restaurantTables.stream()
                 .map(restaurantTable -> entityToDto(restaurantTable))
                 .collect(Collectors.toList());
     }
 
-    public RestaurantTable DtoToEntity(RestaurantTableDto restaurantTableDto) {
+    public static RestaurantTable DtoToEntity(RestaurantTableDTO restaurantTableDTO) {
         RestaurantTable restaurantTable = new RestaurantTable();
-        restaurantTable.setId(restaurantTableDto.getId());
-        restaurantTable.setTableId(restaurantTableDto.getTableId());
-        restaurantTable.setNumberInRestaurant(restaurantTableDto.getNumberInRestaurant());
-        restaurantTable.setNumberOfSeats(restaurantTableDto.getNumberOfSeats());
+        restaurantTable.setTableId(restaurantTableDTO.getTableId());
+        restaurantTable.setId(restaurantTableDTO.getId());
+        restaurantTable.setNumberInRestaurant(restaurantTableDTO.getNumberInRestaurant());
+        restaurantTable.setNumberOfSeats(restaurantTableDTO.getNumberOfSeats());
         return restaurantTable;
     }
 }
