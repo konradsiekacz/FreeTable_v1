@@ -35,7 +35,7 @@ public class UserController {
         return UserConverter.entityToDto(userService.getUserById(id));
     }
 
-    @PostMapping("/users")
+    @PostMapping(value = "/users", consumes = MediaType.APPLICATION_JSON_VALUE)
     @ResponseBody
     @ResponseStatus(HttpStatus.CREATED)
     public void addUser(@RequestBody UserDTO userDTO){
