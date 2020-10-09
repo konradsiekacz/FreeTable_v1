@@ -19,6 +19,10 @@ import { LoginMenuComponent } from './components/login-menu/login-menu.component
 import { CartStatusComponent } from './components/cart-status/cart-status.component';
 import { RestuarantTableListComponent } from './components/restuarant-table-list/restuarant-table-list.component';
 import { CartDetailsComponent } from './components/cart-details/cart-details.component';
+import { RestaurantTableService } from './services/restaurant-table-service.service';
+import { CreateRestaurantTableComponent } from './components/create-restaurant-table/create-restaurant-table.component';
+import { UpdateRestaurantTableComponent } from './components/update-restaurant-table/update-restaurant-table.component';
+import { RestaurantTableDetailsComponent } from './components/restaurant-table-details/restaurant-table-details.component';
 
 @NgModule({
   declarations: [
@@ -35,6 +39,9 @@ import { CartDetailsComponent } from './components/cart-details/cart-details.com
     CartStatusComponent,
     RestuarantTableListComponent,
     CartDetailsComponent,
+    CreateRestaurantTableComponent,
+    UpdateRestaurantTableComponent,
+    RestaurantTableDetailsComponent
   ],
   imports: [
     BrowserModule,
