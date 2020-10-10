@@ -72,7 +72,7 @@ public class RestaurantTableController {
         restaurantTableService.addRestaurantTable(RestaurantTableConverter.DtoToEntity(restaurantDTO));
     }
 
-    @PutMapping("/tables")
+    @PutMapping("/tables/{id}")
     @ResponseBody
     @ResponseStatus(HttpStatus.OK)
     public void updateRestaurant(@RequestBody RestaurantTable restaurantTable) throws ResourceNotFoundException {
