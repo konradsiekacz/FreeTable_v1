@@ -33,7 +33,7 @@ public class RestaurantTableService {
     public void updateRestaurantTable(RestaurantTable updateRestaurantTable) throws ResourceNotFoundException {
         RestaurantTable existingRestaurantTable = getRestaurantTableById(updateRestaurantTable.getTableId());
         existingRestaurantTable.setId(updateRestaurantTable.getId());
-        existingRestaurantTable.setNumberInRestaurant(existingRestaurantTable.getNumberInRestaurant());
+        existingRestaurantTable.setNumberInRestaurant(updateRestaurantTable.getNumberInRestaurant());
         existingRestaurantTable.setNumberOfSeats(updateRestaurantTable.getNumberOfSeats());
         restaurantTableRepository.save(existingRestaurantTable);
     }

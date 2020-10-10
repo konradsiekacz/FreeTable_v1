@@ -32,9 +32,9 @@ public class RestaurantService {
     public void updateRestaurant(Restaurant updateRestaurant) {
         Restaurant existingRestaurant = getRestaurantById(updateRestaurant.getId());
         existingRestaurant.setName(updateRestaurant.getName());
-        existingRestaurant.setAddress(existingRestaurant.getAddress());
+        existingRestaurant.setAddress(updateRestaurant.getAddress());
         existingRestaurant.setImageUrl(updateRestaurant.getImageUrl());
-        existingRestaurant.setAveragePriceForMeal(existingRestaurant.getAveragePriceForMeal());
+        existingRestaurant.setAveragePriceForMeal(updateRestaurant.getAveragePriceForMeal());
         restaurantRepository.save(existingRestaurant);
     }
 

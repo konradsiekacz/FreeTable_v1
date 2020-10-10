@@ -41,7 +41,7 @@ public class RestaurantController {
 		restaurantService.addRestaurant(RestaurantConverter.dtoToEntity(restaurantDTO));
 	}
 
-	@PutMapping("/restaurants")
+	@PutMapping("/restaurants/{id}")
 	@ResponseBody
 	@ResponseStatus(HttpStatus.OK)
 	public void updateRestaurant(@RequestBody Restaurant restaurant){
