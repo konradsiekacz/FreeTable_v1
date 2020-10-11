@@ -18,7 +18,13 @@ import { AdminMenuComponent } from './components/admin-menu/admin-menu.component
 import { LoginMenuComponent } from './components/login-menu/login-menu.component';
 import { CartStatusComponent } from './components/cart-status/cart-status.component';
 import { RestuarantTableListComponent } from './components/restuarant-table-list/restuarant-table-list.component';
+import { BoardAdminComponent } from './components/board-admin/board-admin.component';
+import { HomeComponent } from './components/home/home.component';
+import { LoginComponent } from './components/login/login.component';
+import { ProfileComponent } from './components/profile/profile.component';
+import { RegisterComponent } from './components/register/register.component';
 import { CartDetailsComponent } from './components/cart-details/cart-details.component';
+import { ReservationItemListComponent } from './components/reservation-item-list/reservation-item-list.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +40,14 @@ import { CartDetailsComponent } from './components/cart-details/cart-details.com
     LoginMenuComponent,
     CartStatusComponent,
     RestuarantTableListComponent,
+    BoardAdminComponent,
+    HomeComponent,
+    LoginComponent,
+    ProfileComponent,
+    RegisterComponent,
     CartDetailsComponent,
+    ReservationItemListComponent,
+        
   ],
   imports: [
     BrowserModule,

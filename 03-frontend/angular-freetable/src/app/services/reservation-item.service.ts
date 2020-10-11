@@ -19,4 +19,8 @@ export class ReservationItemService {
   createReservationItem(reservationItem: Object): Observable<Object> {
     return this.http.post(`${this.baseUrl}`, reservationItem);
   }
+
+  getReservationItemsById(id: number): Observable<any> {
+    return this.http.get(`${this.baseUrl}/${id}`);
+  }
 }

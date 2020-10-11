@@ -1,7 +1,7 @@
 import { RestaurantTable } from './restaurant-table';
 
 export class Restaurant {
-    id: number;
+    restaurantId: number;
     name: string;
     address: string;
     imageUrl: string;

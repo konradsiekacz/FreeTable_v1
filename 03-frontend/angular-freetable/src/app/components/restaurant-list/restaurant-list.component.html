@@ -26,14 +26,14 @@
               </thead>
               <tbody>
                  <tr *ngFor="let restaurant of restaurants | async">
-                    <td>{{restaurant.id}}</td>
+                    <td>{{restaurant.restaurantId}}</td>
                     <td>{{restaurant.name}}</td>
                     <td>{{restaurant.address}}</td>
                     <td>{{restaurant.averagePriceForMeal}}</td>
-                    <td><button (click)="deleteRestaurant(restaurant.id)" class="btn btn-danger">Delete</button>
-                       <button (click)="restaurantDetails(restaurant.id)" class="btn btn-info"
+                    <td><button (click)="deleteRestaurant(restaurant.restaurantId)" class="btn btn-danger">Delete</button>
+                       <button (click)="restaurantDetails(restaurant.restaurantId)" class="btn btn-info"
                           style="margin-left: 10px">Details</button>
-                       <button (click)="updateRestaurant(restaurant.id)" class="btn btn-info"
+                       <button (click)="updateRestaurant(restaurant.restaurantId)" class="btn btn-info"
                           style="margin-left: 10px">Update</button>
                     </td>
                  </tr>

@@ -6,6 +6,10 @@ import { RestaurantService } from 'src/app/services/restaurant.service';
 import { ReservationItem } from 'src/app/common/reservation-item';
 import {ReservationItemService} from 'src/app/services/reservation-item.service'
 import { Router } from '@angular/router';
+import { CartStatusComponent } from '../cart-status/cart-status.component';
+import { UserService } from 'src/app/services/user.service';
+import { User } from 'src/app/common/user';
+import { Subject } from 'rxjs';
 
 
 @Component({
@@ -17,7 +21,10 @@ export class CartDetailsComponent implements OnInit {
 
   cartItems: CartItem[] = [];
   restaurant: Restaurant;
+  user: User;
   reservationItems: ReservationItem []=[];
+
+  component: CartStatusComponent;
 
   totalTables: number =0;
   totalSeats: number =0;
@@ -27,15 +34,12 @@ export class CartDetailsComponent implements OnInit {
   constructor(private cartService: CartService,
               private restaurantService: RestaurantService,
               private reservationItemService: ReservationItemService,
+              private userService: UserService,
               private router: Router) { }
 
   ngOnInit(): void {
     this.listCartDetails()
-    this.listReservationItems()
-    // console.log(`check: ${this.listReservationItems[0][0]}`);
-    console.log(`check: ${this.listCartDetails.length}`);
-    console.log(this.reservationItems.length);    
-    
+    this.listReservationItems()    
     
   }
   listCartDetails() {
@@ -60,20 +64,28 @@ export class CartDetailsComponent implements OnInit {
     this.reservationItems = this.cartService.reservationItems;
   }
   save(){
-    this.reservationItemService
+    
+     this.reservationItemService
     .createReservationItems(this.cartItems).subscribe(data=>{
       console.log(data)
-      // this.gotoList();
-
-      
+      // this.gotoList();      
     },
     error => console.log(error));
+    for(var index in this.cartItems){
+      console.log(`cart Items: ${this.cartItems[index].restaurantName}`);
+          
+
+    }
+    this.emptyCartItems();
+    this.cartService.cleanCart();    
     
   }
   
   onSubmit() {
     this.submitted = true;
-    this.save();    
+    this.save();
+    
+
   }
   gotoList() {
     this.router.navigate(['customer']);
@@ -81,6 +93,12 @@ export class CartDetailsComponent implements OnInit {
   list(){
     this.router.navigate(['customer']);
   }
+
+  emptyCartItems() {
+    //empty your array
+    this.cartItems.length = 0;
+  }
+  
     
   
 
