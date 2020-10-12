@@ -7,10 +7,10 @@
               <div *ngFor="let restaurant of restaurants | async" class="col-md-3">
 
                   <div class="product-box">
-                      <a routerLink="/customer/{{restaurant.id}}">
+                      <a routerLink="/customer/{{restaurant.restaurantId}}">
                         <img src="{{ restaurant.imageUrl }}" class="img-responsive">
                       </a>
-                      <a routerLink="/customer/{{restaurant.id}}">
+                      <a routerLink="/customer/{{restaurant.restaurantId}}">
                         <h1>{{ restaurant.name }}</h1>
                       </a>
                       <!-- <div class="price"> Average price for meal: {{ tempRestaurant.averagePriceForMeal | currency:'PLN' }}</div> -->

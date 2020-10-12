@@ -6,6 +6,8 @@ import { RestaurantTable } from 'src/app/common/restaurant-table';
 import { CartItem } from 'src/app/common/cart-item';
 import {CartService} from 'src/app/services/cart.service';
 import { ReservationItem } from 'src/app/common/reservation-item';
+import { TokenStorageService } from 'src/app/services/token-storage.service';
+import { User } from 'src/app/common/user';
 
 
 @Component({
@@ -15,12 +17,15 @@ import { ReservationItem } from 'src/app/common/reservation-item';
 })
 export class RestaurantItemComponent implements OnInit {
 
+  user: User = new User();
   restaurant: Restaurant = new Restaurant();
   constructor(private customerViewService: CustomerViewService, 
               private route: ActivatedRoute,
-              private cartService: CartService) { }
+              private cartService: CartService,
+              private token: TokenStorageService) { }
 
   ngOnInit(): void {
+    this.user = this.token.getUser();
     this.route.paramMap.subscribe(()=>{
       this.handleRestaurantItem();
     })
@@ -36,17 +41,21 @@ export class RestaurantItemComponent implements OnInit {
       }
     )
   }
+  addToCheckout(restaurantTable: RestaurantTable, restaurant: Restaurant, user: User){
+    console.log(`Adding to checkout: ${restaurantTable.tableId}, ${restaurantTable}, ${this.user.id}`);
+    
+    const theReservationItem = new ReservationItem(restaurantTable, restaurant, user);
+    this.cartService.addToCheckout(theReservationItem);
+    console.log(`Restaurant name in list: ${theReservationItem.restaurantName}, ${restaurantTable}, ${this.user.id}`);
+
+  }
+
   addToCart(restaurantTable: RestaurantTable, restaurant: Restaurant){
     console.log(`Adding to cart: ${restaurantTable.tableId}, ${restaurantTable.numberOfSeats}`);
 
-    const theCartItem = new CartItem(restaurantTable, restaurant);
+    const theCartItem = new CartItem(restaurantTable, restaurant, this.user);
     this.cartService.addToCart(theCartItem);
   }
 
-  addToCheckout(restaurantTable: RestaurantTable, restaurant: Restaurant){
-    console.log(`Adding to checkout: ${restaurantTable.tableId}, ${restaurant.name}`);
-
-    const theReservationItem = new ReservationItem(restaurantTable, restaurant);
-    this.cartService.addToCheckout(theReservationItem);
-  }
+  
 }

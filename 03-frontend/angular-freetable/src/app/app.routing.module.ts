@@ -10,10 +10,15 @@ import { AdminMenuComponent } from './components/admin-menu/admin-menu.component
 import { LoginMenuComponent } from './components/login-menu/login-menu.component';
 import { CartDetailsComponent } from './components/cart-details/cart-details.component';
 import {RestuarantTableListComponent} from './components/restuarant-table-list/restuarant-table-list.component';
+import { HomeComponent } from './components/home/home.component';
+import { LoginComponent } from './components/login/login.component';
+import { RegisterComponent } from './components/register/register.component';
+import { ProfileComponent } from './components/profile/profile.component';
+import { ReservationItemListComponent } from './components/reservation-item-list/reservation-item-list.component';
 import {RestaurantTableDetailsComponent} from './components/restaurant-table-details/restaurant-table-details.component'
 import { CreateRestaurantTableComponent } from './components/create-restaurant-table/create-restaurant-table.component';
 import { UpdateRestaurantTableComponent } from './components/update-restaurant-table/update-restaurant-table.component';
- 
+
 const routes: Routes = [
   // { path: '', redirectTo: 'restaurant', pathMatch: 'full' },
   { path: 'admin-menu/restaurants', component: RestaurantListComponent },
@@ -22,11 +27,19 @@ const routes: Routes = [
   { path: 'details/:id', component: RestaurantDetailsComponent },
   { path: 'customer', component: CustomerViewComponent },
   { path: 'customer/:id', component: RestaurantItemComponent },
-  { path: '', component: LoginMenuComponent },
   { path: 'admin-menu', component: AdminMenuComponent },
   { path: 'cart-details', component: CartDetailsComponent },
   // { path: '', redirectTo: 'tables', pathMatch: 'full' },
   { path: 'admin-menu/tables', component: RestuarantTableListComponent },
+  { path: 'home', component: HomeComponent },
+  { path: 'login', component: LoginComponent },
+  { path: 'register', component: RegisterComponent },
+  { path: 'profile', component: ProfileComponent },
+  { path: 'reservations', component: ReservationItemListComponent},
+  // { path: 'user', component: BoardUserComponent },
+  // { path: 'mod', component: BoardModeratorComponent },
+  // { path: 'admin', component: BoardAdminComponent },
+  { path: '', redirectTo: 'home', pathMatch: 'full' }
   { path: 'admin-menu/tables/details/:id', component: RestaurantTableDetailsComponent },
   { path: 'admin-menu/tables/add', component: CreateRestaurantTableComponent },
   { path: 'admin-menu/tables/update/:id', component: UpdateRestaurantTableComponent },

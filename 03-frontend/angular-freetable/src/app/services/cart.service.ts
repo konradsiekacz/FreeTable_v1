@@ -17,6 +17,37 @@ export class CartService {
 
   constructor() { }
 
+  addToCheckout(theReservationItem: ReservationItem){
+    // check if we already have the reservation item in our reservation
+    let alreadyExistsInReservation: boolean = false;
+    let existingCartReservation: ReservationItem = undefined;
+
+    if (this.reservationItems.length > 0) {
+      // find the item in the reservation based on item id
+
+      for (let tempReservationItem of this.reservationItems) {
+        if (theReservationItem.tableId === theReservationItem.tableId) {
+          existingCartReservation = tempReservationItem;
+          break;
+        }
+      }
+
+      // check if we found it
+      alreadyExistsInReservation = (existingCartReservation != undefined);
+    }
+
+    if (alreadyExistsInReservation) {
+      // some statment we can use later
+      
+    }
+    else {
+      // just add the item to the array
+      this.reservationItems.push(theReservationItem);
+    }
+
+    
+  }
+
   addToCart(theCartItem: CartItem){
     // check if we already have the item in our cart
     let alreadyExistsInCart: boolean = false;
@@ -49,36 +80,7 @@ export class CartService {
     this.computeCartTotals();
   }
 
-  addToCheckout(theReservationItem: ReservationItem){
-    // check if we already have the reservation item in our reservation
-    let alreadyExistsInReservation: boolean = false;
-    let existingCartReservation: ReservationItem = undefined;
-
-    if (this.reservationItems.length > 0) {
-      // find the item in the reservation based on item id
-
-      for (let tempReservationItem of this.reservationItems) {
-        if (theReservationItem.tableId === theReservationItem.tableId) {
-          existingCartReservation = tempReservationItem;
-          break;
-        }
-      }
-
-      // check if we found it
-      alreadyExistsInReservation = (existingCartReservation != undefined);
-    }
-
-    if (alreadyExistsInReservation) {
-      // some statment we can use later
-      
-    }
-    else {
-      // just add the item to the array
-      this.reservationItems.push(theReservationItem);
-    }
-
-    
-  }
+  
   computeCartTotals() {
 
     let totalTablesValue: number = 0;
@@ -109,5 +111,16 @@ export class CartService {
       console.log(`name: ${tempCartItem.tableId}, quantity=${tempCartItem.quantity}, totalSeats=${totalSeats}`);
     }
 
+  }
+  cleanCart() {
+
+    let totalTablesValue: number = 0;
+    let totalSeatsValue: number = 0;
+
+    
+    this.totalTables.next(totalTablesValue);
+    this.totalSeats.next(totalSeatsValue);
+
+    
   }
 }
