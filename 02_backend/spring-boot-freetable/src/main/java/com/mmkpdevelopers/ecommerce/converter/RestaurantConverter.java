@@ -17,7 +17,7 @@ public class RestaurantConverter {
         restaurantDTO.setAddress(restaurant.getAddress());
         restaurantDTO.setImageUrl(restaurant.getImageUrl());
         restaurantDTO.setAveragePriceForMeal(restaurant.getAveragePriceForMeal());
-        restaurantDTO.setImageUrl(restaurant.getImageUrl());
+        restaurantDTO.setRestaurantTables(restaurant.getRestaurantTables());
         return restaurantDTO;
     }
 
@@ -34,6 +34,7 @@ public class RestaurantConverter {
         restaurant.setAddress(restaurantDTO.getAddress());
         restaurant.setImageUrl(restaurantDTO.getImageUrl());
         restaurant.setAveragePriceForMeal(restaurantDTO.getAveragePriceForMeal());
+        restaurant.setRestaurantTables(restaurantDTO.getRestaurantTables());
         return restaurant;
     }
 }

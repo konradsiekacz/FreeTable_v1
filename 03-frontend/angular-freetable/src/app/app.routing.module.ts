@@ -20,7 +20,7 @@ import { CreateRestaurantTableComponent } from './components/create-restaurant-t
 import { UpdateRestaurantTableComponent } from './components/update-restaurant-table/update-restaurant-table.component';
 
 const routes: Routes = [
-  // { path: '', redirectTo: 'restaurant', pathMatch: 'full' },
+  { path: '', redirectTo: 'restaurants', pathMatch: 'full' },
   { path: 'admin-menu/restaurants', component: RestaurantListComponent },
   { path: 'admin-menu/restaurants/add', component: CreateRestaurantComponent },
   { path: 'update/:id', component: UpdateRestaurantComponent },
@@ -39,7 +39,7 @@ const routes: Routes = [
   // { path: 'user', component: BoardUserComponent },
   // { path: 'mod', component: BoardModeratorComponent },
   // { path: 'admin', component: BoardAdminComponent },
-  { path: '', redirectTo: 'home', pathMatch: 'full' }
+  { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: 'admin-menu/tables/details/:id', component: RestaurantTableDetailsComponent },
   { path: 'admin-menu/tables/add', component: CreateRestaurantTableComponent },
   { path: 'admin-menu/tables/update/:id', component: UpdateRestaurantTableComponent },

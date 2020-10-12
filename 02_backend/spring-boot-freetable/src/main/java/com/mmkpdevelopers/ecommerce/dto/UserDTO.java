@@ -8,58 +8,44 @@ import lombok.Setter;
 public class UserDTO {
 
     private Long id;
-    private String name;
-    private String surname;
+    private String username;
     private String email;
-    private Long phoneNumber;
-    private String imageUrl;
+    private String password;
 
     public static final class Builder {
 
         private Long id;
-        private String name;
-        private String surname;
+        private String username;
         private String email;
-        private Long phoneNumber;
-        private String imageUrl;
+        private String password;
 
         public Builder id(Long id) {
             this.id = id;
             return this;
         }
 
-        public Builder name(String name) {
-            this.name = name;
+        public Builder username(String username) {
+            this.username = username;
             return this;
         }
 
-        public Builder surname(String surname) {
-            this.surname = surname;
-            return this;
-        }
 
         public Builder email(String email) {
             this.email = email;
             return this;
         }
 
-        public Builder phoneNumber(Long phoneNumber) {
-            this.phoneNumber = phoneNumber;
+        public Builder password(String password) {
+            this.password = password;
             return this;
         }
 
-        public Builder imageUrl(String imageUrl) {
-            this.imageUrl = imageUrl;
-            return this;
-        }
 
         public UserDTO build() {
             UserDTO userDTO = new UserDTO();
             userDTO.id = this.id;
-            userDTO.name = this.name;
-            userDTO.surname = this.surname;
+            userDTO.username = this.username;
             userDTO.email = this.email;
-            userDTO.imageUrl = this.imageUrl;
             return userDTO;
         }
 
