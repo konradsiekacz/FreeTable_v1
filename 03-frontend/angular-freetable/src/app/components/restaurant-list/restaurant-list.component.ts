@@ -39,7 +39,7 @@ export class RestaurantListComponent implements OnInit {
   }
   
   updateRestaurant(id: number){
-    this.router.navigate(['update',id])
+    this.router.navigate(['update', id]);
   }
-  
+
 }
