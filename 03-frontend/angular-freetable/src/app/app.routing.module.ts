@@ -15,6 +15,8 @@ import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { ReservationItemListComponent } from './components/reservation-item-list/reservation-item-list.component';
+import { UpdateRestaurantTableComponent } from './components/update-restaurant-table/update-restaurant-table.component';
+import { RestaurantTableDetailsComponent } from './components/restaurant-table-details/restaurant-table-details.component';
  
 const routes: Routes = [
   { path: 'admin-menu/restaurants', component: RestaurantListComponent },
@@ -31,9 +33,8 @@ const routes: Routes = [
   { path: 'register', component: RegisterComponent },
   { path: 'profile', component: ProfileComponent },
   { path: 'reservations', component: ReservationItemListComponent},
-  // { path: 'user', component: BoardUserComponent },
-  // { path: 'mod', component: BoardModeratorComponent },
-  // { path: 'admin', component: BoardAdminComponent },
+  { path: 'update-table/:id', component: UpdateRestaurantTableComponent },
+  { path: 'details-table/:id', component: RestaurantTableDetailsComponent },
   { path: '', redirectTo: 'home', pathMatch: 'full' }
 
 

@@ -25,6 +25,8 @@ import { ProfileComponent } from './components/profile/profile.component';
 import { RegisterComponent } from './components/register/register.component';
 import { CartDetailsComponent } from './components/cart-details/cart-details.component';
 import { ReservationItemListComponent } from './components/reservation-item-list/reservation-item-list.component';
+import { UpdateRestaurantTableComponent } from './components/update-restaurant-table/update-restaurant-table.component';
+import { RestaurantTableDetailsComponent } from './components/restaurant-table-details/restaurant-table-details.component';
 
 @NgModule({
   declarations: [
@@ -47,7 +49,8 @@ import { ReservationItemListComponent } from './components/reservation-item-list
     RegisterComponent,
     CartDetailsComponent,
     ReservationItemListComponent,
-        
+    UpdateRestaurantTableComponent,
+    RestaurantTableDetailsComponent,
   ],
   imports: [
     BrowserModule,
