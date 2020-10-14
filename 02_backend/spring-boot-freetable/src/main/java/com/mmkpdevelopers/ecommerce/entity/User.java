@@ -1,6 +1,8 @@
 package com.mmkpdevelopers.ecommerce.entity;
 
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 import javax.persistence.*;
@@ -38,6 +40,12 @@ public class User {
 				inverseJoinColumns = @JoinColumn(name = "role_id"))
 	private Set<Role> roles = new HashSet<>();
 
+//	@OneToMany(fetch = FetchType.LAZY)
+//	@JoinTable(	name = "user_reservation_item",
+//			joinColumns = @JoinColumn(name = "user_id"),
+//			inverseJoinColumns = @JoinColumn(name = "reservation_item_id"))
+//	private List<ReservationItem> reservationItems = new ArrayList<>();
+
 	public User() {
 	}
 
@@ -47,6 +55,7 @@ public class User {
 		this.password = password;
 	}
 
+	@Column(name = "id")
 	public Long getId() {
 		return id;
 	}
@@ -55,6 +64,7 @@ public class User {
 		this.id = id;
 	}
 
+	@Column(name = "username")
 	public String getUsername() {
 		return username;
 	}
@@ -63,6 +73,7 @@ public class User {
 		this.username = username;
 	}
 
+	@Column(name = "email")
 	public String getEmail() {
 		return email;
 	}
@@ -86,4 +97,14 @@ public class User {
 	public void setRoles(Set<Role> roles) {
 		this.roles = roles;
 	}
+
+//	@OneToMany
+//	@JoinColumn(name="username")
+//	public List<ReservationItem> getReservationItems() {
+//		return reservationItems;
+//	}
+//
+//	public void setReservationItems(List<ReservationItem> reservationItems) {
+//		this.reservationItems = reservationItems;
+//	}
 }

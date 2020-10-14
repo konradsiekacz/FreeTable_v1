@@ -6,4 +6,5 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 
 @CrossOrigin("http://localhost:4200")
 public interface RestaurantTableRepository extends JpaRepository<RestaurantTable, Long> {
+    RestaurantTable getRestaurantTableByTableId(Long tableId);
 }

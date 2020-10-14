@@ -12,8 +12,8 @@ import java.util.List;
 public class Restaurant {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id")
-    private long id;
+    @Column(name = "restaurant_id")
+    private long restaurantId;
 
     @Column(name = "name")
     private String name;
@@ -27,32 +27,37 @@ public class Restaurant {
     @Column(name = "average_price_for_meal")
     private long averagePriceForMeal;
 
-    @OneToMany(mappedBy = "restaurant", cascade=CascadeType.ALL, orphanRemoval = true)
-    @JoinColumn(name = "id")
-    private List<RestaurantTable> restaurantTables = new ArrayList<RestaurantTable>();
+    @Column(name = "user_id")
+    private long userId;
 
+
+    @OneToMany(mappedBy = "restaurant", cascade=CascadeType.ALL, orphanRemoval = true)
+    @JoinColumn(name = "restaurant_id")
+    private List<RestaurantTable> restaurantTables = new ArrayList<RestaurantTable>();
 
 
     public Restaurant(){
 
     }
 
-    public Restaurant(long id, String name, String address, String imageUrl, long averagePriceForMeal) {
-        this.id = id;
+    public Restaurant(long restaurantId, String name, String address, String imageUrl, long averagePriceForMeal, long userId) {
+        this.restaurantId = restaurantId;
         this.name = name;
         this.address = address;
         this.imageUrl = imageUrl;
         this.averagePriceForMeal = averagePriceForMeal;
-    }
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "id")
-    public long getId() {
-        return id;
+        this.userId = userId;
     }
 
-    public void setId(long id) {
-        this.id = id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "restaurant_id")
+    public long getRestaurantId() {
+        return restaurantId;
+    }
+
+    public void setRestaurantId(long id) {
+        this.restaurantId = id;
     }
 
     @Column(name = "name", nullable = false)
@@ -91,8 +96,17 @@ public class Restaurant {
         this.averagePriceForMeal = averagePriceForMeal;
     }
 
+    @Column(name = "user_id", nullable = false)
+    public long getUserId() {
+        return userId;
+    }
+
+    public void setUserId(long userId) {
+        this.userId = userId;
+    }
+
     @OneToMany
-    @JoinColumn(name="id")
+    @JoinColumn(name="restaurant_id")
     public List<RestaurantTable> getRestaurantTables() {
         return restaurantTables;
     }
@@ -105,7 +119,7 @@ public class Restaurant {
     @Override
     public String toString() {
         return "Restaurant{" +
-                "id=" + id +
+                "id=" + restaurantId +
                 ", name='" + name + '\'' +
                 ", address='" + address + '\'' +
                 ", imageUrl='" + imageUrl + '\'' +

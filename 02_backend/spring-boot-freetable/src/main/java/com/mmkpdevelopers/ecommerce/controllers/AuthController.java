@@ -8,6 +8,7 @@ import java.util.stream.Collectors;
 import javax.validation.Valid;
 
 import com.mmkpdevelopers.ecommerce.dao.RoleRepository;
+import com.mmkpdevelopers.ecommerce.entity.ReservationItem;
 import com.mmkpdevelopers.ecommerce.payload.request.LoginRequest;
 import com.mmkpdevelopers.ecommerce.payload.request.SignupRequest;
 import com.mmkpdevelopers.ecommerce.payload.response.JwtResponse;
@@ -65,6 +66,9 @@ public class AuthController {
 		List<String> roles = userDetails.getAuthorities().stream()
 				.map(item -> item.getAuthority())
 				.collect(Collectors.toList());
+
+
+
 
 		return ResponseEntity.ok(new JwtResponse(jwt,
 												 userDetails.getId(), 

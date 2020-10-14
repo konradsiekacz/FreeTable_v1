@@ -15,8 +15,8 @@ public class RestaurantTable {
     @Column(name = "table_id")
     private long tableId;
 
-    @Column(name = "id")
-    private long id;
+    @Column(name = "restaurant_id")
+    private long restaurantId;
 
     @Column(name = "number_in_restaurant")
     private long numberInRestaurant;
@@ -28,9 +28,9 @@ public class RestaurantTable {
       public RestaurantTable() {
     }
 
-    public RestaurantTable(long tableId, long id, long numberInRestaurant, long numberOfSeats) {
+    public RestaurantTable(long tableId, long restaurantId, long numberInRestaurant, long numberOfSeats) {
         this.tableId = tableId;
-        this.id = id;
+        this.restaurantId = restaurantId;
         this.numberInRestaurant = numberInRestaurant;
         this.numberOfSeats = numberOfSeats;
     }
@@ -46,13 +46,13 @@ public class RestaurantTable {
         this.tableId = tableId;
     }
 
-    @Column(name = "id", nullable = false)
-    public long getId() {
-        return id;
+    @Column(name = "restaurant_id", nullable = false)
+    public long getRestaurantId() {
+        return restaurantId;
     }
 
-    public void setId(long id) {
-        this.id = id;
+    public void setRestaurantId(long id) {
+        this.restaurantId = id;
     }
     @Column(name = "number_of_seats", nullable = false)
     public long getNumberOfSeats() {
