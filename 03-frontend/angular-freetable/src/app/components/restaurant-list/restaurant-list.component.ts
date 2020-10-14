@@ -65,7 +65,7 @@ export class RestaurantListComponent implements OnInit {
   }
 
   restaurantDetails(id: number){
-    this.router.navigate(['details', id]);
+    this.router.navigate(['/details', id]);
   }
   
   updateRestaurant(id: number){
