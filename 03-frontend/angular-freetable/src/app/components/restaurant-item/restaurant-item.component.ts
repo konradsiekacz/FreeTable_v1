@@ -50,7 +50,7 @@ export class RestaurantItemComponent implements OnInit {
 
   }
 
-  addToCart(restaurantTable: RestaurantTable, restaurant: Restaurant){
+  addToCart(restaurantTable: RestaurantTable, restaurant: Restaurant, user: User){
     console.log(`Adding to cart: ${restaurantTable.tableId}, ${restaurantTable.numberOfSeats}`);
 
     const theCartItem = new CartItem(restaurantTable, restaurant, this.user);
