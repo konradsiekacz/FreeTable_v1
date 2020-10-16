@@ -10,6 +10,7 @@ import { Restaurant } from '../common/restaurant';
 export class CustomerViewService {
 
   private baseUrl = 'http://localhost:8080/api/restaurants';
+  private userIdUrl = 'http://localhost:8080/api/restaurant';
 
 
   constructor(private httpClient: HttpClient) { }
@@ -22,9 +23,11 @@ export class CustomerViewService {
     return this.httpClient.get<Restaurant>(restaurantUrl);
   }
 
+  getRestaurantByUserId(userId: number): Observable<Restaurant> {
+    const url = `${this.userIdUrl}/${userId}`;
 
-
- 
+    return this.httpClient.get<Restaurant>(url);
+  } 
 
 }
 

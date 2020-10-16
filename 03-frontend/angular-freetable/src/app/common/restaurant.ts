@@ -6,6 +6,7 @@ export class Restaurant {
     address: string;
     imageUrl: string;
     averagePriceForMeal: number;
+    userId: number;
     restaurantTables: RestaurantTable[];
 
    

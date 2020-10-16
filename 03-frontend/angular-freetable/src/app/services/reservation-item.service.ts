@@ -10,6 +10,7 @@ import { Observable } from 'rxjs';
 export class ReservationItemService {
 
   private baseUrl = 'http://localhost:8080/api/reservationItems';
+  private restaurantIdUrl = 'http://localhost:8080/api/restaurantReservations';
 
   constructor(private http: HttpClient) { }
 
@@ -22,5 +23,9 @@ export class ReservationItemService {
 
   getReservationItemsById(id: number): Observable<any> {
     return this.http.get(`${this.baseUrl}/${id}`);
+  }
+
+  getReservationItemsByRestaurantId(id: number): Observable<any> {
+    return this.http.get(`${this.restaurantIdUrl}/${id}`);
   }
 }

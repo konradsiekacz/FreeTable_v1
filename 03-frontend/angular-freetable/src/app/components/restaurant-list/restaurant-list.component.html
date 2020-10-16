@@ -21,6 +21,7 @@
                     <th>Name</th>
                     <th>Address</th>
                     <th>Average price for meal</th>
+                    <th>Email</th>
                     <th>Actions</th>
                  </tr>
               </thead>
@@ -30,6 +31,7 @@
                     <td>{{restaurant.name}}</td>
                     <td>{{restaurant.address}}</td>
                     <td>{{restaurant.averagePriceForMeal}}</td>
+                    <td>{{restaurant.email}}</td>
                     <td><button (click)="deleteRestaurant(restaurant.restaurantId)" class="btn btn-danger">Delete</button>
                        <button (click)="restaurantDetails(restaurant.restaurantId)" class="btn btn-info"
                           style="margin-left: 10px">Details</button>

@@ -1,0 +1,37 @@
+<div class="main-content">
+    <div class="section-content section-content-p30">
+       <div class="container-fluid">
+          <div class="row">
+             <h2>Reservations </h2>
+             
+             
+          </div>
+          <div class="panel-body">
+            <br>            
+              
+            <br>
+            <br>
+             <table class="table table-striped">
+                <thead>
+                   <tr>
+                      <th>Restaurant name</th>
+                      <th>Number in Restaurant</th>
+                      <th>Number of seats</th>
+                      <th>Reservation</th>
+                      
+                   </tr>
+                </thead>
+                <tbody>
+                   <tr *ngFor="let reservationItem of reservationItems | async">
+                      <td>{{reservationItem.restaurantName}}</td>
+                      <td>{{reservationItem.numberInRestaurant}}</td>
+                      <td>{{reservationItem.numberOfSeats}}</td>
+                      <td>{{reservationItem.username}}</td>
+                      
+                   </tr>
+                </tbody>
+             </table>
+          </div>
+       </div>
+    </div>
+  </div>

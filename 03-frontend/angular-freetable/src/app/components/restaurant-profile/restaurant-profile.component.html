@@ -1,0 +1,42 @@
+<div class="detail-section">
+    <div class="container-fluid">
+
+        <img src="{{ restaurant?.imageUrl }}" class="detail-img">
+
+        <h3>{{ restaurant.name }}</h3>
+        
+        <hr>
+        <h4>Your Tables</h4>
+        <table class="table table-striped">
+            <thead>
+               <tr>
+                  <th>Restaurant Id</th>
+                  <th>Number in Restaurant</th>
+                  <th>Number of seats</th>
+                  <th>Table id</th>
+                  <th>Actions</th>
+                  
+                
+               </tr>
+            </thead>
+            <tbody>
+               <tr *ngFor="let restaurantTable of restaurant.restaurantTables ">
+                  <td>{{restaurantTable.restaurantId}}</td>
+                  <td>{{restaurantTable.numberInRestaurant}}</td>
+                  <td>{{restaurantTable.numberOfSeats}}</td>
+                  <td>{{restaurantTable.tableId}}</td>                    
+                  <td><button (click)="deleteRestaurantTable(restaurantTable.tableId)" class="btn btn-danger">Delete</button>
+                     <button (click)="restaurantTableDetails(restaurantTable.tableId)" class="btn btn-info" style="margin-left: 10px">Details</button>
+                  </td>
+               </tr>
+            </tbody>
+         </table>
+        
+        
+        <br>
+        <button (click)="restaurantReservations(restaurant.restaurantId)" class="btn btn-info" style="margin-left: 10px">Your reservations from customers</button>
+        <br>
+        <br>
+
+    </div>
+</div>

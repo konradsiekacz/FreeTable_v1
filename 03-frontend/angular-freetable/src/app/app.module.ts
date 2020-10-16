@@ -27,6 +27,9 @@ import { CartDetailsComponent } from './components/cart-details/cart-details.com
 import { ReservationItemListComponent } from './components/reservation-item-list/reservation-item-list.component';
 import { UpdateRestaurantTableComponent } from './components/update-restaurant-table/update-restaurant-table.component';
 import { RestaurantTableDetailsComponent } from './components/restaurant-table-details/restaurant-table-details.component';
+import { CreateRestaurantTableComponent } from './components/create-restaurant-table/create-restaurant-table.component';
+import { RestaurantProfileComponent } from './components/restaurant-profile/restaurant-profile.component';
+import { RestaurantProfileReservationsComponent } from './components/restaurant-profile-reservations/restaurant-profile-reservations.component';
 
 @NgModule({
   declarations: [
@@ -51,6 +54,9 @@ import { RestaurantTableDetailsComponent } from './components/restaurant-table-d
     ReservationItemListComponent,
     UpdateRestaurantTableComponent,
     RestaurantTableDetailsComponent,
+    CreateRestaurantTableComponent,
+    RestaurantProfileComponent,
+    RestaurantProfileReservationsComponent,
   ],
   imports: [
     BrowserModule,

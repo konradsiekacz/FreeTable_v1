@@ -1,3 +1,6 @@
+<div class="main-content">
+  <div class="section-content section-content-p30">
+     <div class="container-fluid">
 <h3>Update Restaurant</h3>
 <div style="width: 400px;">
   <form (ngSubmit)="onSubmit()">
@@ -16,6 +19,14 @@
       <input type="text" class="form-control" id="address" required [(ngModel)]="restaurant.address" name="address">
     </div>
 
+    <div class="form-group">
+      <label for="name">User id</label>
+      <input type="text" class="form-control" id="userId" required [(ngModel)]="restaurant.userId" name="userId">
+    </div>
+
     <button type="submit" class="btn btn-success">Submit</button>
   </form>
+</div>
+</div>
+</div>
 </div>

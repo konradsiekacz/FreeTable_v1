@@ -41,7 +41,7 @@ export class UpdateRestaurantComponent implements OnInit {
   }
 
   gotoList() {
-    this.router.navigate(['update']);
+    this.router.navigate(['admin-menu/restaurants']);
   }
 
 }

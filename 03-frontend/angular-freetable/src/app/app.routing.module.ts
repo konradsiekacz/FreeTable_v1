@@ -17,10 +17,16 @@ import { ProfileComponent } from './components/profile/profile.component';
 import { ReservationItemListComponent } from './components/reservation-item-list/reservation-item-list.component';
 import { UpdateRestaurantTableComponent } from './components/update-restaurant-table/update-restaurant-table.component';
 import { RestaurantTableDetailsComponent } from './components/restaurant-table-details/restaurant-table-details.component';
+import { CreateRestaurantTableComponent } from './components/create-restaurant-table/create-restaurant-table.component';
+import { RestaurantProfileComponent } from './components/restaurant-profile/restaurant-profile.component';
+import { RestaurantProfileReservationsComponent } from './components/restaurant-profile-reservations/restaurant-profile-reservations.component';
  
 const routes: Routes = [
   { path: 'admin-menu/restaurants', component: RestaurantListComponent },
   { path: 'admin-menu/restaurants/add', component: CreateRestaurantComponent },
+  { path: 'admin-menu/tables/add', component: CreateRestaurantTableComponent },
+  { path: 'restaurant-profile', component: RestaurantProfileComponent },
+  { path: 'restaurant-profile-reservations/:id', component: RestaurantProfileReservationsComponent },
   { path: 'update/:id', component: UpdateRestaurantComponent },
   { path: 'details/:id', component: RestaurantDetailsComponent },
   { path: 'customer', component: CustomerViewComponent },
