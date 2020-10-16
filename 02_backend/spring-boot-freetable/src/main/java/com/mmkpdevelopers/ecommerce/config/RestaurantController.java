@@ -35,6 +35,13 @@ public class RestaurantController {
 		return RestaurantConverter.entityToDto(restaurantService.getRestaurantById(restaurantId));
 	}
 
+	@GetMapping(value = "/restaurant/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
+	@ResponseBody
+	@ResponseStatus(HttpStatus.OK)
+	public RestaurantDTO getRestaurantByEmail(@PathVariable("id") Long userId) throws ResourceNotFoundException {
+		return RestaurantConverter.entityToDto(restaurantService.getRestaurantByUserId(userId));
+	}
+
 	@PostMapping("/restaurants")
 	@ResponseBody
 	@ResponseStatus(HttpStatus.CREATED)

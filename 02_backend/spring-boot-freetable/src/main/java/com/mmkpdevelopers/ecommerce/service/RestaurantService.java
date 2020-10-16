@@ -19,6 +19,10 @@ public class RestaurantService {
         return restaurantRepository.getRestaurantByRestaurantId(restaurantId);
     }
 
+    public Restaurant getRestaurantByUserId(Long userId) {
+        return restaurantRepository.getRestaurantByUserId(userId);
+    }
+
     public List<Restaurant> getAllRestaurants() {
         return restaurantRepository.findAll();
     }
@@ -33,6 +37,7 @@ public class RestaurantService {
         existingRestaurant.setAddress(updateRestaurant.getAddress());
         existingRestaurant.setImageUrl(updateRestaurant.getImageUrl());
         existingRestaurant.setAveragePriceForMeal(updateRestaurant.getAveragePriceForMeal());
+        existingRestaurant.setUserId(updateRestaurant.getUserId());
         restaurantRepository.save(existingRestaurant);
     }
 

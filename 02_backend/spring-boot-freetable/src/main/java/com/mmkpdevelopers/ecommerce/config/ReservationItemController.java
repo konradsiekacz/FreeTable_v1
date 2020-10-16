@@ -65,6 +65,12 @@ public class ReservationItemController {
         return reservationItemRepository.findReservationItemsById(id);
     }
 
+    @GetMapping("/restaurantReservations/{id}")
+    public List<ReservationItem> getReservationItemsByRestaurantId(@PathVariable(value = "id") Long id)
+            throws ResourceNotFoundException {
+        return reservationItemRepository.findAllByRestaurantId(id);
+    }
+
 
 
 }

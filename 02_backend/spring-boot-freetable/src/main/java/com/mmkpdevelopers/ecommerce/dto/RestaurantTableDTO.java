@@ -8,7 +8,6 @@ import lombok.Setter;
 @Getter
 @Setter
 public class RestaurantTableDTO {
-
     private long tableId;
     private long restaurantId;
     private long numberInRestaurant;
@@ -17,9 +16,9 @@ public class RestaurantTableDTO {
     public RestaurantTableDTO() {
     }
 
-    public RestaurantTableDTO(long tableId, long id, long numberInRestaurant, long numberOfSeats) {
+    public RestaurantTableDTO(long tableId, long restaurantId, long numberInRestaurant, long numberOfSeats) {
         this.tableId = tableId;
-        this.restaurantId = id;
+        this.restaurantId = restaurantId;
         this.numberInRestaurant = numberInRestaurant;
         this.numberOfSeats = numberOfSeats;
     }
@@ -27,7 +26,7 @@ public class RestaurantTableDTO {
     public static final class Builder {
 
         private long tableId;
-        private long id;
+        private long restaurantId;
         private long numberInRestaurant;
         private long numberOfSeats;
 
@@ -37,7 +36,7 @@ public class RestaurantTableDTO {
         }
 
         public RestaurantTableDTO.Builder id(long id) {
-            this.id = id;
+            this.restaurantId = id;
             return this;
         }
 
@@ -54,7 +53,7 @@ public class RestaurantTableDTO {
         public RestaurantTableDTO build() {
             RestaurantTableDTO restaurantTableDTO = new RestaurantTableDTO();
             restaurantTableDTO.tableId = this.tableId;
-            restaurantTableDTO.restaurantId = this.id;
+            restaurantTableDTO.restaurantId = this.restaurantId;
             restaurantTableDTO.numberInRestaurant = this.numberInRestaurant;
             restaurantTableDTO.numberOfSeats = this.numberOfSeats;
             return restaurantTableDTO;

@@ -27,6 +27,10 @@ public class ReservationItemService {
         return reservationItemRepository.findAll();
     }
 
+    public List<ReservationItem> findReservationRestaurantId(Long id){
+        return reservationItemRepository.findAllByRestaurantId(id);
+    }
+
     public void saveReservationItem(ReservationItem reservationItem) {
         reservationItemRepository.save(reservationItem);
     }

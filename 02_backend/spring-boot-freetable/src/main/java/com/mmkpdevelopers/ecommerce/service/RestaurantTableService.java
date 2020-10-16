@@ -16,10 +16,9 @@ public class RestaurantTableService {
         this.restaurantTableRepository = restaurantTableRepository;
     }
 
-    public RestaurantTable getRestaurantTableById(Long tableId) throws ResourceNotFoundException {
+    public RestaurantTable getRestaurantTableById(Long tableId) {
         return restaurantTableRepository.getRestaurantTableByTableId(tableId);
     }
-
 
     public List<RestaurantTable> getAllRestaurantTables() {
         return restaurantTableRepository.findAll();
@@ -29,7 +28,7 @@ public class RestaurantTableService {
         restaurantTableRepository.save(restaurantTable);
     }
 
-    public void updateRestaurantTable(RestaurantTable updateRestaurantTable) throws ResourceNotFoundException {
+    public void updateRestaurantTable(RestaurantTable updateRestaurantTable) {
         RestaurantTable existingRestaurantTable = getRestaurantTableById(updateRestaurantTable.getTableId());
         existingRestaurantTable.setRestaurantId(updateRestaurantTable.getRestaurantId());
         existingRestaurantTable.setNumberInRestaurant(updateRestaurantTable.getNumberInRestaurant());

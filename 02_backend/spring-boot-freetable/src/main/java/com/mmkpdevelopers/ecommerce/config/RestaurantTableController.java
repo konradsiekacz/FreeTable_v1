@@ -1,19 +1,13 @@
 package com.mmkpdevelopers.ecommerce.config;
 
-import com.mmkpdevelopers.ecommerce.converter.RestaurantConverter;
 import com.mmkpdevelopers.ecommerce.converter.RestaurantTableConverter;
-import com.mmkpdevelopers.ecommerce.dao.RestaurantTableRepository;
-import com.mmkpdevelopers.ecommerce.dto.RestaurantDTO;
 import com.mmkpdevelopers.ecommerce.dto.RestaurantTableDTO;
 import com.mmkpdevelopers.ecommerce.entity.RestaurantTable;
 import com.mmkpdevelopers.ecommerce.exception.ResourceNotFoundException;
 import com.mmkpdevelopers.ecommerce.service.RestaurantTableService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.MediaType;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import javax.validation.Valid;
+
 import java.util.List;
 
 import static org.springframework.util.MimeTypeUtils.APPLICATION_JSON_VALUE;
@@ -50,6 +44,13 @@ public class RestaurantTableController {
     @ResponseStatus(HttpStatus.OK)
     public void updateRestaurantTable(@RequestBody RestaurantTable restaurantTable) throws ResourceNotFoundException {
         restaurantTableService.updateRestaurantTable(restaurantTable);
+    }
+
+    @PostMapping("/tables")
+    @ResponseBody
+    @ResponseStatus(HttpStatus.CREATED)
+    public void addRestaurantTable(@RequestBody RestaurantTableDTO restaurantTableDTO){
+        restaurantTableService.addRestaurantTable(RestaurantTableConverter.DtoToEntity(restaurantTableDTO));
     }
 
     @DeleteMapping("/tables/{id}")

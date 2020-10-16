@@ -14,4 +14,6 @@ public interface ReservationItemRepository extends JpaRepository<ReservationItem
     @Query("FROM ReservationItem WHERE id =?1")
     List<ReservationItem> findReservationItemsById(long id);
 
+    List<ReservationItem> findAllByRestaurantId(long id);
+
 }

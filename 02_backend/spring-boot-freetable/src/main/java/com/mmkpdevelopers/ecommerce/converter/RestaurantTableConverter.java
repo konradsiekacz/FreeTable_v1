@@ -12,7 +12,7 @@ public class RestaurantTableConverter {
     public static RestaurantTableDTO entityToDto(RestaurantTable restaurantTable) {
         RestaurantTableDTO restaurantTableDTO = new RestaurantTableDTO();
         restaurantTableDTO.setTableId(restaurantTable.getTableId());
-        restaurantTableDTO.setRestaurantId(restaurantTable.getRestaurantId());
+        restaurantTable.setRestaurantId(restaurantTableDTO.getRestaurantId());
         restaurantTableDTO.setNumberInRestaurant(restaurantTable.getNumberInRestaurant());
         restaurantTableDTO.setNumberOfSeats(restaurantTable.getNumberOfSeats());
         return restaurantTableDTO;
